@@ -102,3 +102,95 @@ Migrating to CreateSections (20140503005906)
   [1m[35m (0.3ms)[0m  COMMIT
   [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
   [1m[36m (0.2ms)[0m  [1mSELECT version FROM schema_migrations[0m
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `subjects` (`created_at`, `name`, `position`, `updated_at`, `visible`) VALUES ('2014-05-03 01:23:37', 'First Subject', 1, '2014-05-03 01:23:37', 1)
+  [1m[36m (6.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `subjects` (`created_at`, `name`, `position`, `updated_at`) VALUES ('2014-05-03 01:25:52', 'Second Subject', 2, '2014-05-03 01:25:52')[0m
+  [1m[35m (8.5ms)[0m  COMMIT
+  [1m[36mSubject Load (0.4ms)[0m  [1mSELECT `subjects`.* FROM `subjects` WHERE `subjects`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE `subjects` SET `name` = 'Initial Subject', `updated_at` = '2014-05-03 01:27:33' WHERE `subjects`.`id` = 1[0m
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36mSubject Load (0.4ms)[0m  [1mSELECT `subjects`.* FROM `subjects` WHERE `subjects`.`id` = 2 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE `subjects` SET `name` = 'Next subject', `visible` = 1, `updated_at` = '2014-05-03 01:29:03' WHERE `subjects`.`id` = 2[0m
+  [1m[35m (7.9ms)[0m  COMMIT
+  [1m[36mSubject Load (0.5ms)[0m  [1mSELECT `subjects`.* FROM `subjects` WHERE `subjects`.`visible` = 1[0m
+  [1m[35mSubject Load (0.3ms)[0m  SELECT `subjects`.* FROM `subjects` WHERE `subjects`.`visible` = 0
+  [1m[36mSubject Load (1.2ms)[0m  [1mSELECT `subjects`.* FROM `subjects` WHERE `subjects`.`visible` = 1 ORDER BY subjects.position ASC[0m
+  [1m[35mSubject Load (0.4ms)[0m  SELECT `subjects`.* FROM `subjects` WHERE `subjects`.`visible` = 1 ORDER BY subjects.created_at DESC
+  [1m[36mSubject Load (7.8ms)[0m  [1mSELECT `subjects`.* FROM `subjects` WHERE (name LIKE '%query%')[0m
+  [1m[35mSubject Load (0.4ms)[0m  SELECT `subjects`.* FROM `subjects` WHERE (name LIKE '%query%')
+  [1m[36mSubject Load (0.2ms)[0m  [1mSELECT `subjects`.* FROM `subjects` WHERE (name LIKE '%Initial%')[0m
+  [1m[36mSubject Load (8.3ms)[0m  [1mSELECT `subjects`.* FROM `subjects` WHERE `subjects`.`id` = 1 LIMIT 1[0m
+  [1m[35mPage Load (6.6ms)[0m  SELECT `pages`.* FROM `pages` WHERE `pages`.`subject_id` = 1 ORDER BY `pages`.`id` ASC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (22.3ms)[0m  INSERT INTO `pages` (`created_at`, `name`, `permalink`, `position`, `subject_id`, `updated_at`) VALUES ('2014-05-03 09:41:03', 'First Page', 'first', 1, 1, '2014-05-03 09:41:03')
+  [1m[36m (6.9ms)[0m  [1mCOMMIT[0m
+  [1m[35mSubject Load (0.3ms)[0m  SELECT `subjects`.* FROM `subjects` WHERE `subjects`.`id` = 1 ORDER BY `subjects`.`id` ASC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (8.3ms)[0m  DELETE FROM `pages` WHERE `pages`.`id` = 1
+  [1m[36m (1.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mPage Load (0.4ms)[0m  SELECT `pages`.* FROM `pages` WHERE `pages`.`subject_id` = 1 ORDER BY `pages`.`id` ASC LIMIT 1
+  [1m[36mPage Load (0.3ms)[0m  [1mSELECT `pages`.* FROM `pages`[0m
+  [1m[36mSubject Load (0.2ms)[0m  [1mSELECT `subjects`.* FROM `subjects` WHERE `subjects`.`id` = 1 LIMIT 1[0m
+  [1m[35mPage Load (0.3ms)[0m  SELECT `pages`.* FROM `pages` WHERE `pages`.`subject_id` = 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO `pages` (`created_at`, `name`, `permalink`, `position`, `subject_id`, `updated_at`) VALUES ('2014-05-03 09:47:38', 'first page', 'first', 1, 1, '2014-05-03 09:47:38')
+  [1m[36m (8.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `pages` (`created_at`, `name`, `permalink`, `position`, `subject_id`, `updated_at`) VALUES ('2014-05-03 09:49:34', 'second page', 'second', 2, 1, '2014-05-03 09:49:34')[0m
+  [1m[35m (8.1ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  UPDATE `pages` SET `pages`.`subject_id` = NULL WHERE `pages`.`subject_id` = 1 AND `pages`.`id` IN (3)
+  [1m[36m (6.1ms)[0m  [1mCOMMIT[0m
+  [1m[35mPage Load (0.3ms)[0m  SELECT `pages`.* FROM `pages` WHERE `pages`.`subject_id` = 1 AND `pages`.`visible` = 1
+  [1m[36mPage Load (0.4ms)[0m  [1mSELECT `pages`.* FROM `pages` WHERE `pages`.`subject_id` = 1 AND `pages`.`visible` = 0[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreateAdminUsersPagesJoin (20140503095143)
+  [1m[35m (47.7ms)[0m  CREATE TABLE `admin_users_pages` (`admin_user_id` int(11), `page_id` int(11)) ENGINE=InnoDB
+  [1m[36m (21.4ms)[0m  [1mCREATE INDEX `index_admin_users_pages_on_admin_user_id_and_page_id` ON `admin_users_pages` (`admin_user_id`, `page_id`) [0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20140503095143')[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[36mPage Load (0.3ms)[0m  [1mSELECT `pages`.* FROM `pages` WHERE `pages`.`id` = 2 LIMIT 1[0m
+  [1m[35mAdminUser Load (12.0ms)[0m  SELECT `admin_users`.* FROM `admin_users` INNER JOIN `admin_users_pages` ON `admin_users`.`id` = `admin_users_pages`.`admin_user_id` WHERE `admin_users_pages`.`page_id` = 2
+  [1m[36mAdminUser Load (0.3ms)[0m  [1mSELECT `admin_users`.* FROM `admin_users`[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `admin_users` (`created_at`, `first_name`, `last_name`, `updated_at`, `username`) VALUES ('2014-05-03 09:57:50', 'Suren', 'Shrestha', '2014-05-03 09:57:50', 'shopuz')[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO `admin_users_pages` (`page_id`, `admin_user_id`) VALUES (2, 1)
+  [1m[36m (8.7ms)[0m  [1mCOMMIT[0m
+  [1m[35mPage Load (0.4ms)[0m  SELECT `pages`.* FROM `pages` INNER JOIN `admin_users_pages` ON `pages`.`id` = `admin_users_pages`.`page_id` WHERE `admin_users_pages`.`admin_user_id` = 1
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreateSectionEdits (20140503100132)
+  [1m[35m (43.5ms)[0m  CREATE TABLE `section_edits` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `admin_user_id` int(11), `section_id` int(11), `summary` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (10.8ms)[0m  [1mCREATE INDEX `index_section_edits_on_admin_user_id_and_section_id` ON `section_edits` (`admin_user_id`, `section_id`) [0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20140503100132')[0m
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[36mAdminUser Load (0.3ms)[0m  [1mSELECT `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 1 LIMIT 1[0m
+  [1m[35mSectionEdit Load (0.3ms)[0m  SELECT `section_edits`.* FROM `section_edits` WHERE `section_edits`.`admin_user_id` = 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `sections` (`created_at`, `name`, `position`, `updated_at`) VALUES ('2014-05-03 10:06:04', 'Section one', 1, '2014-05-03 10:06:04')
+  [1m[36m (5.9ms)[0m  [1mCOMMIT[0m
+  [1m[35mSectionEdit Load (0.3ms)[0m  SELECT `section_edits`.* FROM `section_edits` WHERE `section_edits`.`section_id` = 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `section_edits` (`created_at`, `section_id`, `summary`, `updated_at`) VALUES ('2014-05-03 10:06:56', 1, 'Test edit', '2014-05-03 10:06:56')
+  [1m[36m (8.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mUPDATE `section_edits` SET `admin_user_id` = 1, `updated_at` = '2014-05-03 10:07:29' WHERE `section_edits`.`id` = 1[0m
+  [1m[35m (8.0ms)[0m  COMMIT
+  [1m[36mSectionEdit Load (0.4ms)[0m  [1mSELECT `section_edits`.* FROM `section_edits` WHERE `section_edits`.`admin_user_id` = 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `section_edits` (`admin_user_id`, `created_at`, `section_id`, `summary`, `updated_at`) VALUES (1, '2014-05-03 10:08:53', 1, 'changes', '2014-05-03 10:08:53')[0m
+  [1m[35m (8.3ms)[0m  COMMIT
+  [1m[36mSectionEdit Load (0.3ms)[0m  [1mSELECT `section_edits`.* FROM `section_edits` WHERE `section_edits`.`admin_user_id` = 1[0m
+  [1m[36mAdminUser Load (0.2ms)[0m  [1mSELECT `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 1 LIMIT 1[0m
+  [1m[35mSection Load (0.4ms)[0m  SELECT `sections`.* FROM `sections` INNER JOIN `section_edits` ON `sections`.`id` = `section_edits`.`section_id` WHERE `section_edits`.`admin_user_id` = 1
+  [1m[36mSection Load (0.3ms)[0m  [1mSELECT `sections`.* FROM `sections` WHERE `sections`.`id` = 1 LIMIT 1[0m
+  [1m[35mAdminUser Load (0.4ms)[0m  SELECT `admin_users`.* FROM `admin_users` INNER JOIN `section_edits` ON `admin_users`.`id` = `section_edits`.`admin_user_id` WHERE `section_edits`.`section_id` = 1
