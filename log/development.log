@@ -1,0 +1,104 @@
+
+
+Started GET "/" for 127.0.0.1 at 2014-05-03 10:47:24 +1000
+  [1m[36mActiveRecord::SchemaMigration Load (32.0ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by DemoController#index as HTML
+  Rendered demo/index.html.erb (2.7ms)
+Completed 200 OK in 9ms (Views: 8.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-05-03 10:47:24 +1000
+Processing by DemoController#index as HTML
+  Rendered demo/index.html.erb (0.6ms)
+Completed 200 OK in 1ms (Views: 1.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/demo/hello" for 127.0.0.1 at 2014-05-03 10:47:27 +1000
+Processing by DemoController#hello as HTML
+  Rendered demo/hello.html.erb (3.0ms)
+Completed 200 OK in 12ms (Views: 12.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/demo/hello/20?page=5" for 127.0.0.1 at 2014-05-03 10:47:31 +1000
+Processing by DemoController#hello as HTML
+  Parameters: {"page"=>"5", "id"=>"20"}
+  Rendered demo/hello.html.erb (0.5ms)
+Completed 200 OK in 2ms (Views: 1.5ms | ActiveRecord: 0.0ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to DoNothingYet (20130812204447)
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (27.5ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20130812204447')[0m
+  [1m[35m (2.5ms)[0m  COMMIT
+Migrating to CreateUsers (20130812204803)
+  [1m[36m (52.6ms)[0m  [1mCREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `first_name` varchar(25), `last_name` varchar(50), `email` varchar(255) DEFAULT '' NOT NULL, `password` varchar(40), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20130812204803')[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+Migrating to AlterUsers (20130813013638)
+  [1m[36m (0.5ms)[0m  [1mRENAME TABLE `users` TO `admin_users`[0m
+Mysql2::Error: Table 'admin_users' already exists: RENAME TABLE `users` TO `admin_users`
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreateUsers (20130812204803)
+  [1m[35m (1.4ms)[0m  DROP TABLE `users`
+  [1m[36mSQL (24.6ms)[0m  [1mDELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '20130812204803'[0m
+Migrating to DoNothingYet (20130812204447)
+  [1m[35mSQL (0.6ms)[0m  DELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '20130812204447'
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to DoNothingYet (20130812204447)
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20130812204447')[0m
+  [1m[35m (0.4ms)[0m  COMMIT
+Migrating to CreateUsers (20130812204803)
+  [1m[36m (27.4ms)[0m  [1mCREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `first_name` varchar(25), `last_name` varchar(50), `email` varchar(255) DEFAULT '' NOT NULL, `password` varchar(40), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20130812204803')[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+Migrating to AlterUsers (20130813013638)
+  [1m[36m (0.3ms)[0m  [1mRENAME TABLE `users` TO `admin_users`[0m
+Mysql2::Error: Table 'admin_users' already exists: RENAME TABLE `users` TO `admin_users`
+  [1m[36m (39.7ms)[0m  [1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (13.7ms)[0m  CREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`) 
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to DoNothingYet (20130812204447)
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20130812204447')[0m
+  [1m[35m (0.7ms)[0m  COMMIT
+Migrating to CreateUsers (20130812204803)
+  [1m[36m (11.7ms)[0m  [1mCREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `first_name` varchar(25), `last_name` varchar(50), `email` varchar(255) DEFAULT '' NOT NULL, `password` varchar(40), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20130812204803')[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+Migrating to AlterUsers (20130813013638)
+  [1m[36m (1.4ms)[0m  [1mRENAME TABLE `users` TO `admin_users`[0m
+  [1m[35m (11.9ms)[0m  ALTER TABLE `admin_users` ADD `username` varchar(25) AFTER `email`
+  [1m[36m (13.7ms)[0m  [1mALTER TABLE `admin_users` CHANGE `email` `email` varchar(100) DEFAULT '' NOT NULL[0m
+  [1m[35m (6.5ms)[0m  ALTER TABLE `admin_users` CHANGE `password` `hashed_password` varchar(40) DEFAULT NULL
+  [1m[36m (10.6ms)[0m  [1mCREATE INDEX `index_admin_users_on_username` ON `admin_users` (`username`) [0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20130813013638')[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreateSubjects (20140503005854)
+  [1m[35m (27.9ms)[0m  CREATE TABLE `subjects` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `position` int(11), `visible` tinyint(1) DEFAULT 0, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20140503005854')
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+Migrating to CreatePages (20140503005900)
+  [1m[35m (13.6ms)[0m  CREATE TABLE `pages` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `subject_id` int(11), `name` varchar(255), `permalink` varchar(255), `position` int(11), `visible` tinyint(1) DEFAULT 0, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (10.0ms)[0m  [1mCREATE INDEX `index_pages_on_subject_id` ON `pages` (`subject_id`) [0m
+  [1m[35m (13.3ms)[0m  CREATE INDEX `index_pages_on_permalink` ON `pages` (`permalink`) 
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20140503005900')
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+Migrating to CreateSections (20140503005906)
+  [1m[35m (29.6ms)[0m  CREATE TABLE `sections` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `page_id` int(11), `name` varchar(255), `position` int(11), `visible` tinyint(1) DEFAULT 0, `content_type` varchar(255), `content` text, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (8.6ms)[0m  [1mCREATE INDEX `index_sections_on_page_id` ON `sections` (`page_id`) [0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20140503005906')[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[36m (0.2ms)[0m  [1mSELECT version FROM schema_migrations[0m
