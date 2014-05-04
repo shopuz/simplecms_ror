@@ -7967,3 +7967,188 @@ Started GET "/assets/pages.css?body=1" for 127.0.0.1 at 2014-05-04 13:48:32 +100
 
 
 Started GET "/assets/subjects.css?body=1" for 127.0.0.1 at 2014-05-04 13:48:32 +1000
+  [1m[36m (0.9ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (0.7ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to DoNothingYet (20130812204447)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20130812204447"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+Migrating to CreateUsers (20130812204803)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar(25), "last_name" varchar(50), "email" varchar(255) DEFAULT '' NOT NULL, "password" varchar(40), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20130812204803"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+Migrating to AlterUsers (20130813013638)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.8ms)[0m  ALTER TABLE "users" RENAME TO "admin_users"
+  [1m[36m (0.6ms)[0m  [1mALTER TABLE "admin_users" ADD "username" varchar(25)[0m
+  [1m[35m (0.9ms)[0m  CREATE TEMPORARY TABLE "aadmin_users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar(25), "last_name" varchar(50), "email" varchar(255) DEFAULT '' NOT NULL, "password" varchar(40), "created_at" datetime, "updated_at" datetime, "username" varchar(25)) 
+  [1m[36m (0.0ms)[0m  [1mSELECT * FROM "admin_users"[0m
+  [1m[35m (1.1ms)[0m  DROP TABLE "admin_users"
+  [1m[36m (0.1ms)[0m  [1mCREATE TABLE "admin_users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar(25), "last_name" varchar(50), "email" varchar(100) DEFAULT '' NOT NULL, "password" varchar(40), "created_at" datetime, "updated_at" datetime, "username" varchar(25)) [0m
+  [1m[35m (0.0ms)[0m  SELECT * FROM "aadmin_users"
+  [1m[36m (0.2ms)[0m  [1mDROP TABLE "aadmin_users"[0m
+  [1m[35m (0.1ms)[0m  CREATE TEMPORARY TABLE "aadmin_users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar(25), "last_name" varchar(50), "email" varchar(100) DEFAULT '' NOT NULL, "hashed_password" varchar(40), "created_at" datetime, "updated_at" datetime, "username" varchar(25)) 
+  [1m[36m (0.0ms)[0m  [1mSELECT * FROM "admin_users"[0m
+  [1m[35m (0.1ms)[0m  DROP TABLE "admin_users"
+  [1m[36m (0.1ms)[0m  [1mCREATE TABLE "admin_users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar(25), "last_name" varchar(50), "email" varchar(100) DEFAULT '' NOT NULL, "hashed_password" varchar(40), "created_at" datetime, "updated_at" datetime, "username" varchar(25)) [0m
+  [1m[35m (0.0ms)[0m  SELECT * FROM "aadmin_users"
+  [1m[36m (0.1ms)[0m  [1mDROP TABLE "aadmin_users"[0m
+  [1m[35m (0.1ms)[0m  CREATE INDEX "index_admin_users_on_username" ON "admin_users" ("username")
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20130813013638"]]
+  [1m[35m (0.9ms)[0m  commit transaction
+Migrating to CreateSubjects (20140503005854)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  CREATE TABLE "subjects" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "position" integer, "visible" boolean DEFAULT 'f', "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20140503005854"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+Migrating to CreatePages (20140503005900)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  CREATE TABLE "pages" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "subject_id" integer, "name" varchar(255), "permalink" varchar(255), "position" integer, "visible" boolean DEFAULT 'f', "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (0.1ms)[0m  [1mCREATE INDEX "index_pages_on_subject_id" ON "pages" ("subject_id")[0m
+  [1m[35m (0.1ms)[0m  CREATE INDEX "index_pages_on_permalink" ON "pages" ("permalink")
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20140503005900"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+Migrating to CreateSections (20140503005906)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  CREATE TABLE "sections" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "page_id" integer, "name" varchar(255), "position" integer, "visible" boolean DEFAULT 'f', "content_type" varchar(255), "content" text, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (0.1ms)[0m  [1mCREATE INDEX "index_sections_on_page_id" ON "sections" ("page_id")[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20140503005906"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+Migrating to CreateAdminUsersPagesJoin (20140503095143)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.3ms)[0m  [1mCREATE TABLE "admin_users_pages" ("admin_user_id" integer, "page_id" integer) [0m
+  [1m[35m (0.1ms)[0m  CREATE INDEX "index_admin_users_pages_on_admin_user_id_and_page_id" ON "admin_users_pages" ("admin_user_id", "page_id")
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20140503095143"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+Migrating to CreateSectionEdits (20140503100132)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  CREATE TABLE "section_edits" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "admin_user_id" integer, "section_id" integer, "summary" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (0.1ms)[0m  [1mCREATE INDEX "index_section_edits_on_admin_user_id_and_section_id" ON "section_edits" ("admin_user_id", "section_id")[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20140503100132"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+Migrating to AddPasswordDigestToAdminUsers (20140504020641)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mCREATE TEMPORARY TABLE "aadmin_users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar(25), "last_name" varchar(50), "email" varchar(100) DEFAULT '' NOT NULL, "hashed_password" varchar(40), "created_at" datetime, "updated_at" datetime, "username" varchar(25)) [0m
+  [1m[35m (0.1ms)[0m  CREATE INDEX "tindex_aadmin_users_on_username" ON "aadmin_users" ("username")
+  [1m[36m (0.1ms)[0m  [1mSELECT * FROM "admin_users"[0m
+  [1m[35m (0.2ms)[0m  DROP TABLE "admin_users"
+  [1m[36m (0.2ms)[0m  [1mCREATE TABLE "admin_users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar(25), "last_name" varchar(50), "email" varchar(100) DEFAULT '' NOT NULL, "created_at" datetime, "updated_at" datetime, "username" varchar(25)) [0m
+  [1m[35m (0.2ms)[0m  CREATE INDEX "index_admin_users_on_username" ON "admin_users" ("username")
+  [1m[36m (0.1ms)[0m  [1mSELECT * FROM "aadmin_users"[0m
+  [1m[35m (0.2ms)[0m  DROP TABLE "aadmin_users"
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "admin_users" ADD "password_digest" varchar(255)[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20140504020641"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+
+
+Started GET "/subjects" for 127.0.0.1 at 2014-05-04 14:19:33 +1000
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by SubjectsController#index as HTML
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "subjects"
+  [1m[36mSubject Load (0.1ms)[0m  [1mSELECT "subjects".* FROM "subjects" ORDER BY subjects.position ASC[0m
+  Rendered subjects/index.html.erb within layouts/admin (7.0ms)
+Completed 200 OK in 61ms (Views: 38.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/admin_users.css?body=1" for 127.0.0.1 at 2014-05-04 14:19:33 +1000
+
+
+Started GET "/assets/public.css?body=1" for 127.0.0.1 at 2014-05-04 14:19:33 +1000
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2014-05-04 14:19:33 +1000
+
+
+Started GET "/assets/demo.css?body=1" for 127.0.0.1 at 2014-05-04 14:19:33 +1000
+
+
+Started GET "/assets/access.css?body=1" for 127.0.0.1 at 2014-05-04 14:19:33 +1000
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-04 14:19:33 +1000
+
+
+Started GET "/assets/pages.css?body=1" for 127.0.0.1 at 2014-05-04 14:19:33 +1000
+
+
+Started GET "/assets/sections.css?body=1" for 127.0.0.1 at 2014-05-04 14:19:33 +1000
+
+
+Started GET "/assets/subjects.css?body=1" for 127.0.0.1 at 2014-05-04 14:19:33 +1000
+
+
+Started GET "/assets/plus_sign.png" for 127.0.0.1 at 2014-05-04 14:19:33 +1000
+
+
+Started GET "/assets/footer_gradient.png" for 127.0.0.1 at 2014-05-04 14:19:33 +1000
+
+
+Started GET "/admin" for 127.0.0.1 at 2014-05-04 14:19:37 +1000
+Processing by AccessController#index as HTML
+  Rendered access/index.html.erb within layouts/admin (1.1ms)
+Completed 200 OK in 5ms (Views: 4.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2014-05-04 14:19:37 +1000
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-04 14:19:37 +1000
+
+
+Started GET "/assets/access.css?body=1" for 127.0.0.1 at 2014-05-04 14:19:37 +1000
+
+
+Started GET "/assets/demo.css?body=1" for 127.0.0.1 at 2014-05-04 14:19:37 +1000
+
+
+Started GET "/assets/public.css?body=1" for 127.0.0.1 at 2014-05-04 14:19:37 +1000
+
+
+Started GET "/assets/admin_users.css?body=1" for 127.0.0.1 at 2014-05-04 14:19:37 +1000
+
+
+Started GET "/assets/pages.css?body=1" for 127.0.0.1 at 2014-05-04 14:19:37 +1000
+
+
+Started GET "/assets/sections.css?body=1" for 127.0.0.1 at 2014-05-04 14:19:37 +1000
+
+
+Started GET "/assets/subjects.css?body=1" for 127.0.0.1 at 2014-05-04 14:19:37 +1000
+
+
+Started GET "/" for 127.0.0.1 at 2014-05-04 14:19:39 +1000
+Processing by PublicController#index as HTML
+  Rendered public/index.html.erb within layouts/public (0.4ms)
+  [1m[35mSubject Load (0.3ms)[0m  SELECT "subjects".* FROM "subjects" WHERE "subjects"."visible" = 't' ORDER BY subjects.position ASC
+  Rendered layouts/_navigation.html.erb (4.1ms)
+Completed 200 OK in 16ms (Views: 12.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/admin_users.css?body=1" for 127.0.0.1 at 2014-05-04 14:19:39 +1000
+
+
+Started GET "/assets/access.css?body=1" for 127.0.0.1 at 2014-05-04 14:19:39 +1000
+
+
+Started GET "/assets/pages.css?body=1" for 127.0.0.1 at 2014-05-04 14:19:39 +1000
+
+
+Started GET "/assets/public.css?body=1" for 127.0.0.1 at 2014-05-04 14:19:39 +1000
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-04 14:19:39 +1000
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2014-05-04 14:19:39 +1000
+
+
+Started GET "/assets/demo.css?body=1" for 127.0.0.1 at 2014-05-04 14:19:39 +1000
+
+
+Started GET "/assets/sections.css?body=1" for 127.0.0.1 at 2014-05-04 14:19:39 +1000
+
+
+Started GET "/assets/subjects.css?body=1" for 127.0.0.1 at 2014-05-04 14:19:39 +1000
