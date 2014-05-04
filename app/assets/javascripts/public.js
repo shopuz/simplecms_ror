@@ -11,4 +11,3 @@
 // about supported directives.
 //
 //= require demo
-//= require_tree .

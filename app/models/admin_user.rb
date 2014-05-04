@@ -1,16 +1,17 @@
 class AdminUser < ActiveRecord::Base
-	# to configure a different table name because user table is renamed to admin_user table in alter_user migration
-	# self.table_name = "admin_users"
-  
+
+  # To configure a different table name:
+  # self.table_name = "admin_users"
+
   has_secure_password
 
-	has_and_belongs_to_many :pages
-	has_many :section_edits
-	has_many :sections , :through => :section_edits
+  has_and_belongs_to_many :pages
+  has_many :section_edits
+  has_many :sections, :through => :section_edits
 
-	EMAIL_REGEX = /\A[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}\Z/i
-  	
-  	FORBIDDEN_USERNAMES = ['littlebopeep']
+  EMAIL_REGEX = /\A[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}\Z/i
+  FORBIDDEN_USERNAMES = ['littlebopeep','humptydumpty','marymary']
+
   # validates_presence_of :first_name
   # validates_length_of :first_name, :maximum => 25
   # validates_presence_of :last_name
@@ -34,20 +35,32 @@ class AdminUser < ActiveRecord::Base
                     :length => { :maximum => 100 },
                     :format => EMAIL_REGEX,
                     :confirmation => true
-   validate :username_is_allowed
 
-   scope :sorted, lambda { order("last_name ASC , first_name ASC")}
+  validate :username_is_allowed
+  #validate :no_new_users_on_saturday, :on => :create
 
-   
-   def username_is_allowed
-   	if FORBIDDEN_USERNAMES.include?(username) 
-   		errors.add(:username, 'restricted user name')
-   	end
-   end
+  scope :sorted, lambda { order("last_name ASC, first_name ASC") }
 
-
-   def name
+  def name
     "#{first_name} #{last_name}"
-   end
+    # Or: first_name + ' ' + last_name
+    # Or: [first_name, last_name].join(' ')
+  end
+
+  private
+
+  def username_is_allowed
+    if FORBIDDEN_USERNAMES.include?(username)
+      errors.add(:username, "has been restricted from use.")
+    end
+  end
+
+  # Errors not related to a specific attribute
+  # can be added to errors[:base]
+  def no_new_users_on_saturday
+    if Time.now.wday == 6
+      errors[:base] << "No new users on Saturdays."
+    end
+  end
 
 end
