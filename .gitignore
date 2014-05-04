@@ -1,1 +1,2 @@
-/config/initializers/security_token.rb
+/config/initializers/secret_token.rb
+
