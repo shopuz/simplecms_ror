@@ -1453,3 +1453,2800 @@ Processing by SectionsController#index as HTML
   [1m[35mSection Load (0.3ms)[0m  SELECT `sections`.* FROM `sections` ORDER BY sections.position ASC
   Rendered sections/index.html.erb (3.5ms)
 Completed 200 OK in 5ms (Views: 4.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/subjects" for 127.0.0.1 at 2014-05-03 22:03:08 +1000
+  [1m[36mActiveRecord::SchemaMigration Load (2.9ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by SubjectsController#index as HTML
+  [1m[35mSubject Load (0.3ms)[0m  SELECT `subjects`.* FROM `subjects` ORDER BY subjects.position ASC
+  [1m[36m (1.6ms)[0m  [1mSELECT COUNT(*) FROM `pages` WHERE `pages`.`subject_id` = 1[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `pages` WHERE `pages`.`subject_id` = 2
+  Rendered subjects/index.html.erb within layouts/application (96.3ms)
+Completed 200 OK in 110ms (Views: 64.2ms | ActiveRecord: 39.1ms)
+
+
+Started GET "/subjects" for 127.0.0.1 at 2014-05-03 22:05:41 +1000
+Processing by SubjectsController#index as HTML
+  [1m[36mSubject Load (0.3ms)[0m  [1mSELECT `subjects`.* FROM `subjects` ORDER BY subjects.position ASC[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `pages` WHERE `pages`.`subject_id` = 1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `pages` WHERE `pages`.`subject_id` = 2[0m
+  Rendered subjects/index.html.erb within layouts/admin (33.1ms)
+Completed 200 OK in 43ms (Views: 27.8ms | ActiveRecord: 11.4ms)
+
+
+Started GET "/subjects/edit/2" for 127.0.0.1 at 2014-05-03 22:07:02 +1000
+Processing by SubjectsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mSubject Load (0.3ms)[0m  SELECT `subjects`.* FROM `subjects` WHERE `subjects`.`id` = 2 LIMIT 1
+  Rendered subjects/edit.html.erb within layouts/admin (13.8ms)
+Completed 200 OK in 18ms (Views: 15.7ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/subjects/update/2" for 127.0.0.1 at 2014-05-03 22:07:04 +1000
+Processing by SubjectsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rcw2QVJX1w7yvq5Lk/HUYrQ+3mKh0CG1DvPDvnptgo8=", "subject"=>{"name"=>"Next subject", "position"=>"2", "visible"=>"1"}, "commit"=>"Update Subject", "id"=>"2"}
+  [1m[36mSubject Load (0.2ms)[0m  [1mSELECT `subjects`.* FROM `subjects` WHERE `subjects`.`id` = 2 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mUPDATE `subjects` SET `name` = 'Next subject', `updated_at` = '2014-05-03 12:07:04' WHERE `subjects`.`id` = 2[0m
+  [1m[35m (12.0ms)[0m  COMMIT
+Redirected to http://localhost:3000/subjects/show/2
+Completed 302 Found in 19ms (ActiveRecord: 12.7ms)
+
+
+Started GET "/subjects/show/2" for 127.0.0.1 at 2014-05-03 22:07:05 +1000
+Processing by SubjectsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mSubject Load (0.2ms)[0m  [1mSELECT `subjects`.* FROM `subjects` WHERE `subjects`.`id` = 2 LIMIT 1[0m
+  Rendered subjects/show.html.erb within layouts/admin (0.9ms)
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/subjects/" for 127.0.0.1 at 2014-05-03 22:09:10 +1000
+Processing by SubjectsController#index as HTML
+  [1m[35mSubject Load (0.3ms)[0m  SELECT `subjects`.* FROM `subjects` ORDER BY subjects.position ASC
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `pages` WHERE `pages`.`subject_id` = 1[0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM `pages` WHERE `pages`.`subject_id` = 2
+  Rendered subjects/index.html.erb within layouts/admin (7.1ms)
+Completed 200 OK in 10ms (Views: 8.9ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/subjects/" for 127.0.0.1 at 2014-05-03 22:09:19 +1000
+Processing by SubjectsController#index as HTML
+  [1m[36mSubject Load (0.4ms)[0m  [1mSELECT `subjects`.* FROM `subjects` ORDER BY subjects.position ASC[0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM `pages` WHERE `pages`.`subject_id` = 1
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `pages` WHERE `pages`.`subject_id` = 2[0m
+  Rendered subjects/index.html.erb within layouts/admin (5.4ms)
+Completed 200 OK in 7ms (Views: 6.0ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/subjects/index" for 127.0.0.1 at 2014-05-03 22:09:26 +1000
+Processing by SubjectsController#index as HTML
+  [1m[35mSubject Load (0.3ms)[0m  SELECT `subjects`.* FROM `subjects` ORDER BY subjects.position ASC
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `pages` WHERE `pages`.`subject_id` = 1[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `pages` WHERE `pages`.`subject_id` = 2
+  Rendered subjects/index.html.erb within layouts/admin (5.5ms)
+Completed 200 OK in 7ms (Views: 5.8ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/subjects/index" for 127.0.0.1 at 2014-05-03 22:09:59 +1000
+Processing by SubjectsController#index as HTML
+  [1m[36mSubject Load (0.3ms)[0m  [1mSELECT `subjects`.* FROM `subjects` ORDER BY subjects.position ASC[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `pages` WHERE `pages`.`subject_id` = 1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `pages` WHERE `pages`.`subject_id` = 2[0m
+  Rendered subjects/index.html.erb within layouts/admin (4.6ms)
+Completed 200 OK in 7ms (Views: 5.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/subjects/index" for 127.0.0.1 at 2014-05-03 22:13:40 +1000
+Processing by SubjectsController#index as HTML
+  [1m[35mSubject Load (6.1ms)[0m  SELECT `subjects`.* FROM `subjects` ORDER BY subjects.position ASC
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `pages` WHERE `pages`.`subject_id` = 1[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `pages` WHERE `pages`.`subject_id` = 2
+  Rendered subjects/index.html.erb within layouts/admin (10.7ms)
+Completed 200 OK in 13ms (Views: 6.5ms | ActiveRecord: 6.5ms)
+
+
+Started GET "/subjects/new" for 127.0.0.1 at 2014-05-03 22:13:41 +1000
+Processing by SubjectsController#new as HTML
+  Rendered subjects/_form.html.erb (12.0ms)
+  Rendered subjects/new.html.erb within layouts/admin (19.2ms)
+Completed 500 Internal Server Error in 22ms
+
+ActionView::Template::Error (undefined local variable or method `f' for #<#<Class:0x00000101afabc0>:0x00000101b02870>):
+    1: <table summary="Subject form fields">
+    2:       <tr>
+    3:         <th>Name</th>
+    4:         <td><%= f.text_field(:name) %></td>
+    5:       </tr>
+    6:       <tr>
+    7:         <th>Position</th>
+  app/views/subjects/_form.html.erb:4:in `_app_views_subjects__form_html_erb___3245848902131678701_2164864900'
+  app/views/subjects/new.html.erb:8:in `block in _app_views_subjects_new_html_erb___2062687993175245904_2161623540'
+  app/views/subjects/new.html.erb:6:in `_app_views_subjects_new_html_erb___2062687993175245904_2161623540'
+
+
+  Rendered /Users/shopuz/.rvm/gems/ruby-2.1.0/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (3.5ms)
+  Rendered /Users/shopuz/.rvm/gems/ruby-2.1.0/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.2ms)
+  Rendered /Users/shopuz/.rvm/gems/ruby-2.1.0/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (12.8ms)
+
+
+Started GET "/subjects/new" for 127.0.0.1 at 2014-05-03 22:14:07 +1000
+Processing by SubjectsController#new as HTML
+  Rendered subjects/_form.html.erb (0.6ms)
+  Rendered subjects/new.html.erb within layouts/admin (2.6ms)
+Completed 200 OK in 4ms (Views: 3.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/subjects/new" for 127.0.0.1 at 2014-05-03 22:14:57 +1000
+Processing by SubjectsController#new as HTML
+  Rendered subjects/_form.html.erb (0.5ms)
+  Rendered subjects/new.html.erb within layouts/admin (2.6ms)
+Completed 200 OK in 5ms (Views: 4.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/subjects" for 127.0.0.1 at 2014-05-03 22:15:00 +1000
+Processing by SubjectsController#index as HTML
+  [1m[36mSubject Load (0.3ms)[0m  [1mSELECT `subjects`.* FROM `subjects` ORDER BY subjects.position ASC[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `pages` WHERE `pages`.`subject_id` = 1
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM `pages` WHERE `pages`.`subject_id` = 2[0m
+  Rendered subjects/index.html.erb within layouts/admin (8.1ms)
+Completed 200 OK in 10ms (Views: 9.0ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/subjects/edit/1" for 127.0.0.1 at 2014-05-03 22:15:02 +1000
+Processing by SubjectsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mSubject Load (1.2ms)[0m  SELECT `subjects`.* FROM `subjects` WHERE `subjects`.`id` = 1 LIMIT 1
+  Rendered subjects/_form.html.erb (0.4ms)
+  Rendered subjects/edit.html.erb within layouts/admin (4.0ms)
+Completed 200 OK in 10ms (Views: 6.1ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/subjects" for 127.0.0.1 at 2014-05-03 22:18:42 +1000
+Processing by SubjectsController#index as HTML
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `subjects`[0m
+  [1m[35mSubject Load (0.2ms)[0m  SELECT `subjects`.* FROM `subjects` ORDER BY subjects.position ASC
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `pages` WHERE `pages`.`subject_id` = 1[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `pages` WHERE `pages`.`subject_id` = 2
+  Rendered subjects/index.html.erb within layouts/admin (6.8ms)
+Completed 200 OK in 9ms (Views: 7.8ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/subjects" for 127.0.0.1 at 2014-05-03 22:23:12 +1000
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by SubjectsController#index as HTML
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `subjects`
+  [1m[36mSubject Load (0.3ms)[0m  [1mSELECT `subjects`.* FROM `subjects` ORDER BY subjects.position ASC[0m
+  Rendered subjects/index.html.erb within layouts/admin (49.3ms)
+Completed 500 Internal Server Error in 62ms
+
+ActionView::Template::Error (undefined local variable or method `options' for #<#<Class:0x00000101da2e90>:0x00000101da1fb8>):
+    17:     <tr class="<%= cycle('odd', 'even') %>">
+    18:       <td><%= subject.position %></td>
+    19:       <td><%= subject.name %></td>
+    20:       <td class="center"><%= status_tag(subject.visible) %></td>
+    21:       <td class="center"><%= subject.pages.size %></td>
+    22:       <td class="actions">
+    23:         <%= link_to("Show", {:action => 'show', :id => subject.id}, :class => 'action show') %>
+  app/helpers/subjects_helper.rb:3:in `status_tag'
+  app/views/subjects/index.html.erb:20:in `block in _app_views_subjects_index_html_erb__1635093169642400662_2162957700'
+  app/views/subjects/index.html.erb:16:in `_app_views_subjects_index_html_erb__1635093169642400662_2162957700'
+
+
+  Rendered /Users/shopuz/.rvm/gems/ruby-2.1.0/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+  Rendered /Users/shopuz/.rvm/gems/ruby-2.1.0/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (18.0ms)
+  Rendered /Users/shopuz/.rvm/gems/ruby-2.1.0/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (25.2ms)
+  [1m[36mSubject Load (4.2ms)[0m  [1mSELECT `subjects`.* FROM `subjects`[0m
+  [1m[35mSubject Load (0.3ms)[0m  SELECT `subjects`.* FROM `subjects`
+
+
+Started GET "/subjects" for 127.0.0.1 at 2014-05-03 22:26:44 +1000
+Processing by SubjectsController#index as HTML
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `subjects`
+  [1m[36mSubject Load (0.3ms)[0m  [1mSELECT `subjects`.* FROM `subjects` ORDER BY subjects.position ASC[0m
+  Rendered subjects/index.html.erb within layouts/admin (9.2ms)
+Completed 500 Internal Server Error in 11ms
+
+ActionView::Template::Error (undefined local variable or method `options' for #<#<Class:0x00000101da2e90>:0x00000101a893a8>):
+    17:     <tr class="<%= cycle('odd', 'even') %>">
+    18:       <td><%= subject.position %></td>
+    19:       <td><%= subject.name %></td>
+    20:       <td class="center"><%= status_tag(subject.visible) %> </td>
+    21:       <td class="center"><%= subject.pages.size %></td>
+    22:       <td class="actions">
+    23:         <%= link_to("Show", {:action => 'show', :id => subject.id}, :class => 'action show') %>
+  app/helpers/subjects_helper.rb:3:in `status_tag'
+  app/views/subjects/index.html.erb:20:in `block in _app_views_subjects_index_html_erb__1635093169642400662_2161382780'
+  app/views/subjects/index.html.erb:16:in `_app_views_subjects_index_html_erb__1635093169642400662_2161382780'
+
+
+  Rendered /Users/shopuz/.rvm/gems/ruby-2.1.0/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+  Rendered /Users/shopuz/.rvm/gems/ruby-2.1.0/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered /Users/shopuz/.rvm/gems/ruby-2.1.0/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (7.6ms)
+
+
+Started GET "/subjects" for 127.0.0.1 at 2014-05-03 22:27:08 +1000
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by SubjectsController#index as HTML
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `subjects`
+  [1m[36mSubject Load (0.3ms)[0m  [1mSELECT `subjects`.* FROM `subjects` ORDER BY subjects.position ASC[0m
+  Rendered subjects/index.html.erb within layouts/admin (23.8ms)
+Completed 500 Internal Server Error in 31ms
+
+ActionView::Template::Error (undefined local variable or method `options' for #<#<Class:0x000001015bc4b0>:0x000001015b7898>):
+    17:     <tr class="<%= cycle('odd', 'even') %>">
+    18:       <td><%= subject.position %></td>
+    19:       <td><%= subject.name %></td>
+    20:       <td class="center"><%= status_tag(subject.visible) %> </td>
+    21:       <td class="center"><%= subject.pages.size %></td>
+    22:       <td class="actions">
+    23:         <%= link_to("Show", {:action => 'show', :id => subject.id}, :class => 'action show') %>
+  app/helpers/subjects_helper.rb:3:in `status_tag'
+  app/views/subjects/index.html.erb:20:in `block in _app_views_subjects_index_html_erb__3704997506481462280_2158766880'
+  app/views/subjects/index.html.erb:16:in `_app_views_subjects_index_html_erb__3704997506481462280_2158766880'
+
+
+  Rendered /Users/shopuz/.rvm/gems/ruby-2.1.0/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+  Rendered /Users/shopuz/.rvm/gems/ruby-2.1.0/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (16.1ms)
+  Rendered /Users/shopuz/.rvm/gems/ruby-2.1.0/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (22.3ms)
+
+
+Started GET "/subjects" for 127.0.0.1 at 2014-05-03 22:27:28 +1000
+Processing by SubjectsController#index as HTML
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `subjects`
+  [1m[36mSubject Load (0.2ms)[0m  [1mSELECT `subjects`.* FROM `subjects` ORDER BY subjects.position ASC[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `pages` WHERE `pages`.`subject_id` = 1
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `pages` WHERE `pages`.`subject_id` = 2[0m
+  Rendered subjects/index.html.erb within layouts/admin (79.5ms)
+Completed 200 OK in 85ms (Views: 50.9ms | ActiveRecord: 30.7ms)
+
+
+Started GET "/subjects" for 127.0.0.1 at 2014-05-03 22:28:46 +1000
+Processing by SubjectsController#index as HTML
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `subjects`
+  [1m[36mSubject Load (0.2ms)[0m  [1mSELECT `subjects`.* FROM `subjects` ORDER BY subjects.position ASC[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `pages` WHERE `pages`.`subject_id` = 1
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `pages` WHERE `pages`.`subject_id` = 2[0m
+  Rendered subjects/index.html.erb within layouts/admin (6.9ms)
+Completed 200 OK in 9ms (Views: 7.8ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/subjects" for 127.0.0.1 at 2014-05-03 22:30:27 +1000
+Processing by SubjectsController#index as HTML
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `subjects`
+  [1m[36mSubject Load (0.2ms)[0m  [1mSELECT `subjects`.* FROM `subjects` ORDER BY subjects.position ASC[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `pages` WHERE `pages`.`subject_id` = 1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `pages` WHERE `pages`.`subject_id` = 2[0m
+  Rendered subjects/index.html.erb within layouts/admin (33.4ms)
+Completed 200 OK in 37ms (Views: 23.1ms | ActiveRecord: 11.9ms)
+
+
+Started GET "/pages" for 127.0.0.1 at 2014-05-03 22:30:30 +1000
+Processing by PagesController#index as HTML
+  [1m[35mPage Load (0.3ms)[0m  SELECT `pages`.* FROM `pages` ORDER BY pages.position ASC
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `sections` WHERE `sections`.`page_id` = 2[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `sections` WHERE `sections`.`page_id` = 3
+  Rendered pages/index.html.erb within layouts/admin (48.4ms)
+Completed 200 OK in 50ms (Views: 29.4ms | ActiveRecord: 20.5ms)
+
+
+Started GET "/pages" for 127.0.0.1 at 2014-05-03 22:31:17 +1000
+Processing by PagesController#index as HTML
+  [1m[36mPage Load (0.3ms)[0m  [1mSELECT `pages`.* FROM `pages` ORDER BY pages.position ASC[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `sections` WHERE `sections`.`page_id` = 2
+  [1m[36m (0.6ms)[0m  [1mSELECT COUNT(*) FROM `sections` WHERE `sections`.`page_id` = 3[0m
+  Rendered pages/index.html.erb within layouts/admin (6.5ms)
+Completed 200 OK in 12ms (Views: 7.1ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/sections" for 127.0.0.1 at 2014-05-03 22:31:20 +1000
+Processing by SectionsController#index as HTML
+  [1m[35mSection Load (0.6ms)[0m  SELECT `sections`.* FROM `sections` ORDER BY sections.position ASC
+  Rendered sections/index.html.erb within layouts/admin (18.8ms)
+Completed 200 OK in 22ms (Views: 20.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/sections" for 127.0.0.1 at 2014-05-03 22:40:31 +1000
+Processing by SectionsController#index as HTML
+  [1m[36mSection Load (0.3ms)[0m  [1mSELECT `sections`.* FROM `sections` ORDER BY sections.position ASC[0m
+  Rendered sections/index.html.erb within layouts/admin (2.2ms)
+Completed 200 OK in 5ms (Views: 4.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/sections" for 127.0.0.1 at 2014-05-03 22:42:46 +1000
+Processing by SectionsController#index as HTML
+  [1m[35mSection Load (0.3ms)[0m  SELECT `sections`.* FROM `sections` ORDER BY sections.position ASC
+  Rendered sections/index.html.erb within layouts/admin (1.9ms)
+Completed 200 OK in 60ms (Views: 59.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2014-05-03 22:42:46 +1000
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-03 22:42:46 +1000
+
+
+Started GET "/assets/pages.css?body=1" for 127.0.0.1 at 2014-05-03 22:42:46 +1000
+
+
+Started GET "/assets/public.css?body=1" for 127.0.0.1 at 2014-05-03 22:42:46 +1000
+
+
+Started GET "/assets/section.css?body=1" for 127.0.0.1 at 2014-05-03 22:42:46 +1000
+
+
+Started GET "/assets/demo.css?body=1" for 127.0.0.1 at 2014-05-03 22:42:46 +1000
+
+
+Started GET "/assets/subjects.css?body=1" for 127.0.0.1 at 2014-05-03 22:42:46 +1000
+
+
+Started GET "/subjects" for 127.0.0.1 at 2014-05-03 22:42:55 +1000
+Processing by SubjectsController#index as HTML
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `subjects`[0m
+  [1m[35mSubject Load (0.2ms)[0m  SELECT `subjects`.* FROM `subjects` ORDER BY subjects.position ASC
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `pages` WHERE `pages`.`subject_id` = 1[0m
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM `pages` WHERE `pages`.`subject_id` = 2
+  Rendered subjects/index.html.erb within layouts/admin (9.7ms)
+Completed 200 OK in 15ms (Views: 13.5ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-03 22:42:56 +1000
+
+
+Started GET "/subjects/show/1" for 127.0.0.1 at 2014-05-03 22:43:01 +1000
+Processing by SubjectsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSubject Load (0.3ms)[0m  [1mSELECT `subjects`.* FROM `subjects` WHERE `subjects`.`id` = 1 LIMIT 1[0m
+  Rendered subjects/show.html.erb within layouts/admin (2.2ms)
+Completed 200 OK in 16ms (Views: 13.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-03 22:43:01 +1000
+
+
+Started GET "/subjects/show/2" for 127.0.0.1 at 2014-05-03 22:43:04 +1000
+Processing by SubjectsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mSubject Load (0.2ms)[0m  SELECT `subjects`.* FROM `subjects` WHERE `subjects`.`id` = 2 LIMIT 1
+  Rendered subjects/show.html.erb within layouts/admin (0.6ms)
+Completed 200 OK in 5ms (Views: 3.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-03 22:43:04 +1000
+
+
+Started GET "/subjects/edit/1" for 127.0.0.1 at 2014-05-03 22:43:08 +1000
+Processing by SubjectsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSubject Load (0.3ms)[0m  [1mSELECT `subjects`.* FROM `subjects` WHERE `subjects`.`id` = 1 LIMIT 1[0m
+  Rendered subjects/_form.html.erb (11.7ms)
+  Rendered subjects/edit.html.erb within layouts/admin (18.8ms)
+Completed 200 OK in 31ms (Views: 30.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-03 22:43:08 +1000
+
+
+Started GET "/subjects" for 127.0.0.1 at 2014-05-03 22:49:53 +1000
+Processing by SubjectsController#index as HTML
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `subjects`
+  [1m[36mSubject Load (0.4ms)[0m  [1mSELECT `subjects`.* FROM `subjects` ORDER BY subjects.position ASC[0m
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM `pages` WHERE `pages`.`subject_id` = 1
+  [1m[36m (0.7ms)[0m  [1mSELECT COUNT(*) FROM `pages` WHERE `pages`.`subject_id` = 2[0m
+  Rendered subjects/index.html.erb within layouts/admin (17.7ms)
+Completed 200 OK in 24ms (Views: 20.5ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-03 22:49:53 +1000
+
+
+Started GET "/assets/plus_sign.png" for 127.0.0.1 at 2014-05-03 22:49:53 +1000
+
+
+Started GET "/subjects" for 127.0.0.1 at 2014-05-03 22:51:35 +1000
+Processing by SubjectsController#index as HTML
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `subjects`
+  [1m[36mSubject Load (0.2ms)[0m  [1mSELECT `subjects`.* FROM `subjects` ORDER BY subjects.position ASC[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `pages` WHERE `pages`.`subject_id` = 1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `pages` WHERE `pages`.`subject_id` = 2[0m
+  Rendered subjects/index.html.erb within layouts/admin (6.4ms)
+Completed 200 OK in 11ms (Views: 9.8ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-03 22:51:35 +1000
+
+
+Started GET "/assets/public.css?body=1" for 127.0.0.1 at 2014-05-03 22:51:35 +1000
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2014-05-03 22:51:35 +1000
+
+
+Started GET "/assets/pages.css?body=1" for 127.0.0.1 at 2014-05-03 22:51:35 +1000
+
+
+Started GET "/assets/demo.css?body=1" for 127.0.0.1 at 2014-05-03 22:51:35 +1000
+
+
+Started GET "/assets/section.css?body=1" for 127.0.0.1 at 2014-05-03 22:51:35 +1000
+
+
+Started GET "/assets/subjects.css?body=1" for 127.0.0.1 at 2014-05-03 22:51:35 +1000
+
+
+Started GET "/assets/plus_sign.png" for 127.0.0.1 at 2014-05-03 22:51:35 +1000
+
+
+Started GET "/subjects" for 127.0.0.1 at 2014-05-03 22:51:46 +1000
+Processing by SubjectsController#index as HTML
+  [1m[35m (1.6ms)[0m  SELECT COUNT(*) FROM `subjects`
+  [1m[36mSubject Load (0.3ms)[0m  [1mSELECT `subjects`.* FROM `subjects` ORDER BY subjects.position ASC[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `pages` WHERE `pages`.`subject_id` = 1
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `pages` WHERE `pages`.`subject_id` = 2[0m
+  Rendered subjects/index.html.erb within layouts/admin (11.7ms)
+Completed 200 OK in 16ms (Views: 13.0ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-03 22:51:46 +1000
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2014-05-03 22:51:46 +1000
+
+
+Started GET "/assets/section.css?body=1" for 127.0.0.1 at 2014-05-03 22:51:46 +1000
+
+
+Started GET "/assets/demo.css?body=1" for 127.0.0.1 at 2014-05-03 22:51:46 +1000
+
+
+Started GET "/assets/pages.css?body=1" for 127.0.0.1 at 2014-05-03 22:51:46 +1000
+
+
+Started GET "/assets/public.css?body=1" for 127.0.0.1 at 2014-05-03 22:51:46 +1000
+
+
+Started GET "/assets/subjects.css?body=1" for 127.0.0.1 at 2014-05-03 22:51:46 +1000
+
+
+Started GET "/assets/plus_sign.png" for 127.0.0.1 at 2014-05-03 22:51:46 +1000
+
+
+Started GET "/subjects" for 127.0.0.1 at 2014-05-03 22:53:08 +1000
+Processing by SubjectsController#index as HTML
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `subjects`
+  [1m[36mSubject Load (0.4ms)[0m  [1mSELECT `subjects`.* FROM `subjects` ORDER BY subjects.position ASC[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `pages` WHERE `pages`.`subject_id` = 1
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM `pages` WHERE `pages`.`subject_id` = 2[0m
+  Rendered subjects/index.html.erb within layouts/admin (9.6ms)
+Completed 200 OK in 44ms (Views: 41.7ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-03 22:53:08 +1000
+
+
+Started GET "/assets/pages.css?body=1" for 127.0.0.1 at 2014-05-03 22:53:09 +1000
+
+
+Started GET "/assets/public.css?body=1" for 127.0.0.1 at 2014-05-03 22:53:09 +1000
+
+
+Started GET "/assets/section.css?body=1" for 127.0.0.1 at 2014-05-03 22:53:09 +1000
+
+
+Started GET "/assets/demo.css?body=1" for 127.0.0.1 at 2014-05-03 22:53:09 +1000
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2014-05-03 22:53:09 +1000
+
+
+Started GET "/assets/subjects.css?body=1" for 127.0.0.1 at 2014-05-03 22:53:09 +1000
+
+
+Started GET "/assets/plus_sign.png" for 127.0.0.1 at 2014-05-03 22:53:09 +1000
+
+
+Started GET "/assets/footer_gradient.png" for 127.0.0.1 at 2014-05-03 22:53:09 +1000
+
+
+Started GET "/subjects" for 127.0.0.1 at 2014-05-04 10:58:28 +1000
+  [1m[36mActiveRecord::SchemaMigration Load (4.4ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by SubjectsController#index as HTML
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `subjects`
+  [1m[36mSubject Load (0.4ms)[0m  [1mSELECT `subjects`.* FROM `subjects` ORDER BY subjects.position ASC[0m
+  [1m[35m (5.8ms)[0m  SELECT COUNT(*) FROM `pages` WHERE `pages`.`subject_id` = 1
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `pages` WHERE `pages`.`subject_id` = 2[0m
+  Rendered subjects/index.html.erb within layouts/admin (97.9ms)
+Completed 200 OK in 168ms (Views: 118.2ms | ActiveRecord: 45.3ms)
+
+
+Started GET "/assets/public.css?body=1" for 127.0.0.1 at 2014-05-04 10:58:28 +1000
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2014-05-04 10:58:28 +1000
+
+
+Started GET "/assets/demo.css?body=1" for 127.0.0.1 at 2014-05-04 10:58:29 +1000
+
+
+Started GET "/assets/section.css?body=1" for 127.0.0.1 at 2014-05-04 10:58:29 +1000
+
+
+Started GET "/assets/pages.css?body=1" for 127.0.0.1 at 2014-05-04 10:58:29 +1000
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-04 10:58:29 +1000
+
+
+Started GET "/assets/subjects.css?body=1" for 127.0.0.1 at 2014-05-04 10:58:29 +1000
+
+
+Started GET "/assets/plus_sign.png" for 127.0.0.1 at 2014-05-04 10:58:29 +1000
+
+
+Started GET "/assets/footer_gradient.png" for 127.0.0.1 at 2014-05-04 10:58:29 +1000
+
+
+Started GET "/subjects/new" for 127.0.0.1 at 2014-05-04 10:58:33 +1000
+Processing by SubjectsController#new as HTML
+  Rendered subjects/_form.html.erb (22.7ms)
+  Rendered subjects/new.html.erb within layouts/admin (29.1ms)
+Completed 200 OK in 34ms (Views: 33.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2014-05-04 10:58:33 +1000
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-04 10:58:33 +1000
+
+
+Started GET "/assets/public.css?body=1" for 127.0.0.1 at 2014-05-04 10:58:33 +1000
+
+
+Started GET "/assets/demo.css?body=1" for 127.0.0.1 at 2014-05-04 10:58:33 +1000
+
+
+Started GET "/assets/section.css?body=1" for 127.0.0.1 at 2014-05-04 10:58:33 +1000
+
+
+Started GET "/assets/pages.css?body=1" for 127.0.0.1 at 2014-05-04 10:58:33 +1000
+
+
+Started GET "/assets/subjects.css?body=1" for 127.0.0.1 at 2014-05-04 10:58:33 +1000
+
+
+Started GET "/subjects/new" for 127.0.0.1 at 2014-05-04 11:00:45 +1000
+Processing by SubjectsController#new as HTML
+  Rendered subjects/_form.html.erb (1.7ms)
+  Rendered subjects/new.html.erb within layouts/admin (3.3ms)
+Completed 200 OK in 7ms (Views: 6.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-04 11:00:45 +1000
+
+
+Started GET "/assets/public.css?body=1" for 127.0.0.1 at 2014-05-04 11:00:45 +1000
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2014-05-04 11:00:45 +1000
+
+
+Started GET "/assets/demo.css?body=1" for 127.0.0.1 at 2014-05-04 11:00:45 +1000
+
+
+Started GET "/assets/pages.css?body=1" for 127.0.0.1 at 2014-05-04 11:00:45 +1000
+
+
+Started GET "/assets/section.css?body=1" for 127.0.0.1 at 2014-05-04 11:00:45 +1000
+
+
+Started GET "/assets/subjects.css?body=1" for 127.0.0.1 at 2014-05-04 11:00:45 +1000
+
+
+Started GET "/pages/new" for 127.0.0.1 at 2014-05-04 11:00:56 +1000
+Processing by PagesController#new as HTML
+  Rendered pages/new.html.erb within layouts/admin (15.7ms)
+Completed 200 OK in 23ms (Views: 22.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-04 11:00:56 +1000
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2014-05-04 11:00:56 +1000
+
+
+Started GET "/assets/demo.css?body=1" for 127.0.0.1 at 2014-05-04 11:00:56 +1000
+
+
+Started GET "/assets/section.css?body=1" for 127.0.0.1 at 2014-05-04 11:00:56 +1000
+
+
+Started GET "/assets/public.css?body=1" for 127.0.0.1 at 2014-05-04 11:00:56 +1000
+
+
+Started GET "/assets/subjects.css?body=1" for 127.0.0.1 at 2014-05-04 11:00:56 +1000
+
+
+Started GET "/assets/pages.css?body=1" for 127.0.0.1 at 2014-05-04 11:00:56 +1000
+
+
+Started GET "/pages/new" for 127.0.0.1 at 2014-05-04 11:01:16 +1000
+Processing by PagesController#new as HTML
+  Rendered pages/new.html.erb within layouts/admin (1.4ms)
+Completed 200 OK in 5ms (Views: 4.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/public.css?body=1" for 127.0.0.1 at 2014-05-04 11:01:16 +1000
+
+
+Started GET "/assets/section.css?body=1" for 127.0.0.1 at 2014-05-04 11:01:16 +1000
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-04 11:01:16 +1000
+
+
+Started GET "/assets/pages.css?body=1" for 127.0.0.1 at 2014-05-04 11:01:16 +1000
+
+
+Started GET "/assets/demo.css?body=1" for 127.0.0.1 at 2014-05-04 11:01:16 +1000
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2014-05-04 11:01:16 +1000
+
+
+Started GET "/assets/subjects.css?body=1" for 127.0.0.1 at 2014-05-04 11:01:16 +1000
+
+
+Started GET "/pages/new" for 127.0.0.1 at 2014-05-04 11:01:16 +1000
+Processing by PagesController#new as HTML
+  Rendered pages/new.html.erb within layouts/admin (1.5ms)
+Completed 200 OK in 8ms (Views: 7.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/public.css?body=1" for 127.0.0.1 at 2014-05-04 11:01:17 +1000
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-04 11:01:17 +1000
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2014-05-04 11:01:17 +1000
+
+
+Started GET "/assets/section.css?body=1" for 127.0.0.1 at 2014-05-04 11:01:17 +1000
+
+
+Started GET "/assets/demo.css?body=1" for 127.0.0.1 at 2014-05-04 11:01:17 +1000
+
+
+Started GET "/assets/pages.css?body=1" for 127.0.0.1 at 2014-05-04 11:01:17 +1000
+
+
+Started GET "/assets/subjects.css?body=1" for 127.0.0.1 at 2014-05-04 11:01:17 +1000
+
+
+Started GET "/pages/new" for 127.0.0.1 at 2014-05-04 11:01:17 +1000
+Processing by PagesController#new as HTML
+  Rendered pages/new.html.erb within layouts/admin (2.8ms)
+Completed 200 OK in 10ms (Views: 9.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-04 11:01:17 +1000
+
+
+Started GET "/assets/demo.css?body=1" for 127.0.0.1 at 2014-05-04 11:01:17 +1000
+
+
+Started GET "/assets/public.css?body=1" for 127.0.0.1 at 2014-05-04 11:01:17 +1000
+
+
+Started GET "/assets/pages.css?body=1" for 127.0.0.1 at 2014-05-04 11:01:17 +1000
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2014-05-04 11:01:17 +1000
+
+
+Started GET "/assets/subjects.css?body=1" for 127.0.0.1 at 2014-05-04 11:01:17 +1000
+
+
+Started GET "/assets/section.css?body=1" for 127.0.0.1 at 2014-05-04 11:01:17 +1000
+
+
+Started GET "/pages/new" for 127.0.0.1 at 2014-05-04 11:01:17 +1000
+Processing by PagesController#new as HTML
+  Rendered pages/new.html.erb within layouts/admin (1.2ms)
+Completed 200 OK in 4ms (Views: 3.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2014-05-04 11:01:17 +1000
+
+
+Started GET "/assets/section.css?body=1" for 127.0.0.1 at 2014-05-04 11:01:17 +1000
+
+
+Started GET "/assets/demo.css?body=1" for 127.0.0.1 at 2014-05-04 11:01:17 +1000
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-04 11:01:17 +1000
+
+
+Started GET "/assets/public.css?body=1" for 127.0.0.1 at 2014-05-04 11:01:17 +1000
+
+
+Started GET "/assets/pages.css?body=1" for 127.0.0.1 at 2014-05-04 11:01:17 +1000
+
+
+Started GET "/assets/subjects.css?body=1" for 127.0.0.1 at 2014-05-04 11:01:17 +1000
+
+
+Started GET "/pages/new" for 127.0.0.1 at 2014-05-04 11:01:17 +1000
+Processing by PagesController#new as HTML
+  Rendered pages/new.html.erb within layouts/admin (1.4ms)
+Completed 200 OK in 6ms (Views: 6.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/public.css?body=1" for 127.0.0.1 at 2014-05-04 11:01:17 +1000
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-04 11:01:17 +1000
+
+
+Started GET "/assets/demo.css?body=1" for 127.0.0.1 at 2014-05-04 11:01:17 +1000
+
+
+Started GET "/assets/pages.css?body=1" for 127.0.0.1 at 2014-05-04 11:01:17 +1000
+
+
+Started GET "/assets/section.css?body=1" for 127.0.0.1 at 2014-05-04 11:01:17 +1000
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2014-05-04 11:01:17 +1000
+
+
+Started GET "/assets/subjects.css?body=1" for 127.0.0.1 at 2014-05-04 11:01:17 +1000
+
+
+Started GET "/pages/new" for 127.0.0.1 at 2014-05-04 11:01:18 +1000
+Processing by PagesController#new as HTML
+  Rendered pages/new.html.erb within layouts/admin (3.3ms)
+Completed 200 OK in 7ms (Views: 7.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-04 11:01:18 +1000
+
+
+Started GET "/assets/section.css?body=1" for 127.0.0.1 at 2014-05-04 11:01:18 +1000
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2014-05-04 11:01:18 +1000
+
+
+Started GET "/assets/pages.css?body=1" for 127.0.0.1 at 2014-05-04 11:01:18 +1000
+
+
+Started GET "/assets/demo.css?body=1" for 127.0.0.1 at 2014-05-04 11:01:18 +1000
+
+
+Started GET "/assets/public.css?body=1" for 127.0.0.1 at 2014-05-04 11:01:18 +1000
+
+
+Started GET "/assets/subjects.css?body=1" for 127.0.0.1 at 2014-05-04 11:01:18 +1000
+
+
+Started GET "/sections/new" for 127.0.0.1 at 2014-05-04 11:01:34 +1000
+Processing by SectionsController#new as HTML
+  Rendered sections/new.html.erb within layouts/admin (15.6ms)
+Completed 200 OK in 44ms (Views: 19.2ms | ActiveRecord: 19.1ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-04 11:01:34 +1000
+
+
+Started GET "/assets/public.css?body=1" for 127.0.0.1 at 2014-05-04 11:01:34 +1000
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2014-05-04 11:01:34 +1000
+
+
+Started GET "/assets/demo.css?body=1" for 127.0.0.1 at 2014-05-04 11:01:34 +1000
+
+
+Started GET "/assets/pages.css?body=1" for 127.0.0.1 at 2014-05-04 11:01:34 +1000
+
+
+Started GET "/assets/subjects.css?body=1" for 127.0.0.1 at 2014-05-04 11:01:34 +1000
+
+
+Started GET "/assets/section.css?body=1" for 127.0.0.1 at 2014-05-04 11:01:34 +1000
+
+
+Started GET "/sections/new" for 127.0.0.1 at 2014-05-04 11:01:45 +1000
+Processing by SectionsController#new as HTML
+  Rendered sections/new.html.erb within layouts/admin (1.8ms)
+Completed 200 OK in 6ms (Views: 5.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-04 11:01:45 +1000
+
+
+Started GET "/assets/pages.css?body=1" for 127.0.0.1 at 2014-05-04 11:01:45 +1000
+
+
+Started GET "/assets/public.css?body=1" for 127.0.0.1 at 2014-05-04 11:01:45 +1000
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2014-05-04 11:01:45 +1000
+
+
+Started GET "/assets/section.css?body=1" for 127.0.0.1 at 2014-05-04 11:01:45 +1000
+
+
+Started GET "/assets/demo.css?body=1" for 127.0.0.1 at 2014-05-04 11:01:45 +1000
+
+
+Started GET "/assets/subjects.css?body=1" for 127.0.0.1 at 2014-05-04 11:01:45 +1000
+
+
+Started GET "/sections/new" for 127.0.0.1 at 2014-05-04 11:01:46 +1000
+Processing by SectionsController#new as HTML
+  Rendered sections/new.html.erb within layouts/admin (1.8ms)
+Completed 200 OK in 5ms (Views: 4.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/demo.css?body=1" for 127.0.0.1 at 2014-05-04 11:01:46 +1000
+
+
+Started GET "/assets/public.css?body=1" for 127.0.0.1 at 2014-05-04 11:01:46 +1000
+
+
+Started GET "/assets/pages.css?body=1" for 127.0.0.1 at 2014-05-04 11:01:46 +1000
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2014-05-04 11:01:46 +1000
+
+
+Started GET "/assets/section.css?body=1" for 127.0.0.1 at 2014-05-04 11:01:46 +1000
+
+
+Started GET "/assets/subjects.css?body=1" for 127.0.0.1 at 2014-05-04 11:01:46 +1000
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-04 11:01:46 +1000
+
+
+Started GET "/sections/new" for 127.0.0.1 at 2014-05-04 11:01:46 +1000
+Processing by SectionsController#new as HTML
+  Rendered sections/new.html.erb within layouts/admin (4.9ms)
+Completed 200 OK in 15ms (Views: 14.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-04 11:01:46 +1000
+
+
+Started GET "/assets/demo.css?body=1" for 127.0.0.1 at 2014-05-04 11:01:46 +1000
+
+
+Started GET "/assets/subjects.css?body=1" for 127.0.0.1 at 2014-05-04 11:01:47 +1000
+
+
+Started GET "/assets/section.css?body=1" for 127.0.0.1 at 2014-05-04 11:01:47 +1000
+
+
+Started GET "/assets/pages.css?body=1" for 127.0.0.1 at 2014-05-04 11:01:47 +1000
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2014-05-04 11:01:47 +1000
+
+
+Started GET "/assets/public.css?body=1" for 127.0.0.1 at 2014-05-04 11:01:47 +1000
+
+
+Started GET "/sections/new" for 127.0.0.1 at 2014-05-04 11:01:47 +1000
+Processing by SectionsController#new as HTML
+  Rendered sections/new.html.erb within layouts/admin (2.8ms)
+Completed 200 OK in 8ms (Views: 7.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-04 11:01:47 +1000
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2014-05-04 11:01:47 +1000
+
+
+Started GET "/assets/demo.css?body=1" for 127.0.0.1 at 2014-05-04 11:01:47 +1000
+
+
+Started GET "/assets/pages.css?body=1" for 127.0.0.1 at 2014-05-04 11:01:47 +1000
+
+
+Started GET "/assets/public.css?body=1" for 127.0.0.1 at 2014-05-04 11:01:47 +1000
+
+
+Started GET "/assets/section.css?body=1" for 127.0.0.1 at 2014-05-04 11:01:47 +1000
+
+
+Started GET "/assets/subjects.css?body=1" for 127.0.0.1 at 2014-05-04 11:01:47 +1000
+
+
+Started GET "/sections/new" for 127.0.0.1 at 2014-05-04 11:02:00 +1000
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by SectionsController#new as HTML
+  Rendered sections/new.html.erb within layouts/admin (46.6ms)
+Completed 200 OK in 90ms (Views: 78.2ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/assets/demo.css?body=1" for 127.0.0.1 at 2014-05-04 11:02:00 +1000
+
+
+Started GET "/assets/pages.css?body=1" for 127.0.0.1 at 2014-05-04 11:02:00 +1000
+
+
+Started GET "/assets/public.css?body=1" for 127.0.0.1 at 2014-05-04 11:02:00 +1000
+
+
+Started GET "/assets/section.css?body=1" for 127.0.0.1 at 2014-05-04 11:02:00 +1000
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2014-05-04 11:02:00 +1000
+
+
+Started GET "/assets/subjects.css?body=1" for 127.0.0.1 at 2014-05-04 11:02:00 +1000
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-04 11:02:00 +1000
+
+
+Started GET "/sections/new" for 127.0.0.1 at 2014-05-04 11:02:01 +1000
+Processing by SectionsController#new as HTML
+  Rendered sections/new.html.erb within layouts/admin (2.1ms)
+Completed 200 OK in 5ms (Views: 5.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-04 11:02:01 +1000
+
+
+Started GET "/assets/pages.css?body=1" for 127.0.0.1 at 2014-05-04 11:02:01 +1000
+
+
+Started GET "/assets/demo.css?body=1" for 127.0.0.1 at 2014-05-04 11:02:01 +1000
+
+
+Started GET "/assets/public.css?body=1" for 127.0.0.1 at 2014-05-04 11:02:01 +1000
+
+
+Started GET "/assets/subjects.css?body=1" for 127.0.0.1 at 2014-05-04 11:02:01 +1000
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2014-05-04 11:02:01 +1000
+
+
+Started GET "/assets/section.css?body=1" for 127.0.0.1 at 2014-05-04 11:02:01 +1000
+
+
+Started GET "/sections/new" for 127.0.0.1 at 2014-05-04 11:02:02 +1000
+Processing by SectionsController#new as HTML
+  Rendered sections/new.html.erb within layouts/admin (1.3ms)
+Completed 200 OK in 4ms (Views: 4.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/public.css?body=1" for 127.0.0.1 at 2014-05-04 11:02:02 +1000
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-04 11:02:02 +1000
+
+
+Started GET "/assets/section.css?body=1" for 127.0.0.1 at 2014-05-04 11:02:02 +1000
+
+
+Started GET "/assets/demo.css?body=1" for 127.0.0.1 at 2014-05-04 11:02:02 +1000
+
+
+Started GET "/assets/pages.css?body=1" for 127.0.0.1 at 2014-05-04 11:02:02 +1000
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2014-05-04 11:02:02 +1000
+
+
+Started GET "/assets/subjects.css?body=1" for 127.0.0.1 at 2014-05-04 11:02:02 +1000
+
+
+Started GET "/sections/new" for 127.0.0.1 at 2014-05-04 11:02:43 +1000
+Processing by SectionsController#new as HTML
+  Rendered sections/new.html.erb within layouts/admin (13.3ms)
+Completed 500 Internal Server Error in 15ms
+
+ActionView::Template::Error (':partial' is not an ActiveModel-compatible object. It must implement :to_partial_path.):
+     7: 
+     8:   <%= form_for(:section, :url => {:action => 'create'}) do |f| %>
+     9: 
+    10:     <%= render(:partial, 'form') %>
+    11: 
+    12:     <div class="form-buttons">
+    13:       <%= submit_tag("Create Section") %>
+  app/views/sections/new.html.erb:10:in `block in _app_views_sections_new_html_erb__216644219207546522_2161995760'
+  app/views/sections/new.html.erb:8:in `_app_views_sections_new_html_erb__216644219207546522_2161995760'
+
+
+  Rendered /Users/shopuz/.rvm/gems/ruby-2.1.0/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+  Rendered /Users/shopuz/.rvm/gems/ruby-2.1.0/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.3ms)
+  Rendered /Users/shopuz/.rvm/gems/ruby-2.1.0/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (11.1ms)
+
+
+Started GET "/sections/new" for 127.0.0.1 at 2014-05-04 11:03:19 +1000
+Processing by SectionsController#new as HTML
+ERROR: compiling _app_views_sections_new_html_erb__216644219207546522_2186595200 RAISED /Users/shopuz/Projects/Timepass/simple_cms_rails/app/views/sections/new.html.erb:10: syntax error, unexpected =>, expecting ')'
+...l => 'form', :locals => {(:f => f)}) );@output_buffer.safe_a...
+...                               ^
+/Users/shopuz/Projects/Timepass/simple_cms_rails/app/views/sections/new.html.erb:16: syntax error, unexpected keyword_end, expecting ')'
+';   end 
+        ^
+/Users/shopuz/Projects/Timepass/simple_cms_rails/app/views/sections/new.html.erb:19: syntax error, unexpected keyword_ensure, expecting ')'
+/Users/shopuz/Projects/Timepass/simple_cms_rails/app/views/sections/new.html.erb:21: syntax error, unexpected keyword_end, expecting ')'
+Function body:           def _app_views_sections_new_html_erb__216644219207546522_2186595200(local_assigns, output_buffer)
+            _old_virtual_path, @virtual_path = @virtual_path, "sections/new";_old_output_buffer = @output_buffer;;@output_buffer = output_buffer || ActionView::OutputBuffer.new; @page_title = "Create Section" 
+@output_buffer.safe_append='
+';@output_buffer.append=( link_to("<< Back to List", {:action => 'index'}, :class => 'back-link') );@output_buffer.safe_append='
+
+<div class="sections new">
+  <h2>Create Section</h2>
+
+  ';@output_buffer.append=  form_for(:section, :url => {:action => 'create'}) do |f| @output_buffer.safe_append='
+
+    ';@output_buffer.append=( render(:partial => 'form', :locals => {(:f => f)}) );@output_buffer.safe_append='
+
+    <div class="form-buttons">
+      ';@output_buffer.append=( submit_tag("Create Section") );@output_buffer.safe_append='
+    </div>
+
+';   end 
+@output_buffer.safe_append='</div>
+';@output_buffer.to_s
+          ensure
+            @virtual_path, @output_buffer = _old_virtual_path, _old_output_buffer
+          end
+
+Backtrace: /Users/shopuz/.rvm/gems/ruby-2.1.0/gems/actionpack-4.0.0/lib/action_view/template.rb:299:in `module_eval'
+/Users/shopuz/.rvm/gems/ruby-2.1.0/gems/actionpack-4.0.0/lib/action_view/template.rb:299:in `compile'
+/Users/shopuz/.rvm/gems/ruby-2.1.0/gems/actionpack-4.0.0/lib/action_view/template.rb:248:in `block in compile!'
+/Users/shopuz/.rvm/gems/ruby-2.1.0/gems/actionpack-4.0.0/lib/action_view/template.rb:236:in `synchronize'
+/Users/shopuz/.rvm/gems/ruby-2.1.0/gems/actionpack-4.0.0/lib/action_view/template.rb:236:in `compile!'
+/Users/shopuz/.rvm/gems/ruby-2.1.0/gems/actionpack-4.0.0/lib/action_view/template.rb:142:in `block in render'
+/Users/shopuz/.rvm/gems/ruby-2.1.0/gems/activesupport-4.0.0/lib/active_support/notifications.rb:161:in `instrument'
+/Users/shopuz/.rvm/gems/ruby-2.1.0/gems/actionpack-4.0.0/lib/action_view/template.rb:141:in `render'
+/Users/shopuz/.rvm/gems/ruby-2.1.0/gems/actionpack-4.0.0/lib/action_view/renderer/template_renderer.rb:49:in `block (2 levels) in render_template'
+/Users/shopuz/.rvm/gems/ruby-2.1.0/gems/actionpack-4.0.0/lib/action_view/renderer/abstract_renderer.rb:38:in `block in instrument'
+/Users/shopuz/.rvm/gems/ruby-2.1.0/gems/activesupport-4.0.0/lib/active_support/notifications.rb:159:in `block in instrument'
+/Users/shopuz/.rvm/gems/ruby-2.1.0/gems/activesupport-4.0.0/lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+/Users/shopuz/.rvm/gems/ruby-2.1.0/gems/activesupport-4.0.0/lib/active_support/notifications.rb:159:in `instrument'
+/Users/shopuz/.rvm/gems/ruby-2.1.0/gems/actionpack-4.0.0/lib/action_view/renderer/abstract_renderer.rb:38:in `instrument'
+/Users/shopuz/.rvm/gems/ruby-2.1.0/gems/actionpack-4.0.0/lib/action_view/renderer/template_renderer.rb:48:in `block in render_template'
+/Users/shopuz/.rvm/gems/ruby-2.1.0/gems/actionpack-4.0.0/lib/action_view/renderer/template_renderer.rb:56:in `render_with_layout'
+/Users/shopuz/.rvm/gems/ruby-2.1.0/gems/actionpack-4.0.0/lib/action_view/renderer/template_renderer.rb:47:in `render_template'
+/Users/shopuz/.rvm/gems/ruby-2.1.0/gems/actionpack-4.0.0/lib/action_view/renderer/template_renderer.rb:17:in `render'
+/Users/shopuz/.rvm/gems/ruby-2.1.0/gems/actionpack-4.0.0/lib/action_view/renderer/renderer.rb:42:in `render_template'
+/Users/shopuz/.rvm/gems/ruby-2.1.0/gems/actionpack-4.0.0/lib/action_view/renderer/renderer.rb:23:in `render'
+/Users/shopuz/.rvm/gems/ruby-2.1.0/gems/actionpack-4.0.0/lib/abstract_controller/rendering.rb:127:in `_render_template'
+/Users/shopuz/.rvm/gems/ruby-2.1.0/gems/actionpack-4.0.0/lib/action_controller/metal/streaming.rb:219:in `_render_template'
+/Users/shopuz/.rvm/gems/ruby-2.1.0/gems/actionpack-4.0.0/lib/abstract_controller/rendering.rb:120:in `render_to_body'
+/Users/shopuz/.rvm/gems/ruby-2.1.0/gems/actionpack-4.0.0/lib/action_controller/metal/rendering.rb:33:in `render_to_body'
+/Users/shopuz/.rvm/gems/ruby-2.1.0/gems/actionpack-4.0.0/lib/action_controller/metal/renderers.rb:26:in `render_to_body'
+/Users/shopuz/.rvm/gems/ruby-2.1.0/gems/actionpack-4.0.0/lib/abstract_controller/rendering.rb:97:in `render'
+/Users/shopuz/.rvm/gems/ruby-2.1.0/gems/actionpack-4.0.0/lib/action_controller/metal/rendering.rb:16:in `render'
+/Users/shopuz/.rvm/gems/ruby-2.1.0/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:41:in `block (2 levels) in render'
+/Users/shopuz/.rvm/gems/ruby-2.1.0/gems/activesupport-4.0.0/lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+/Users/shopuz/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/benchmark.rb:294:in `realtime'
+/Users/shopuz/.rvm/gems/ruby-2.1.0/gems/activesupport-4.0.0/lib/active_support/core_ext/benchmark.rb:12:in `ms'
+/Users/shopuz/.rvm/gems/ruby-2.1.0/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:41:in `block in render'
+/Users/shopuz/.rvm/gems/ruby-2.1.0/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:84:in `cleanup_view_runtime'
+/Users/shopuz/.rvm/gems/ruby-2.1.0/gems/activerecord-4.0.0/lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+/Users/shopuz/.rvm/gems/ruby-2.1.0/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:40:in `render'
+/Users/shopuz/.rvm/gems/ruby-2.1.0/gems/actionpack-4.0.0/lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+/Users/shopuz/.rvm/gems/ruby-2.1.0/gems/actionpack-4.0.0/lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+/Users/shopuz/.rvm/gems/ruby-2.1.0/gems/actionpack-4.0.0/lib/abstract_controller/base.rb:189:in `process_action'
+/Users/shopuz/.rvm/gems/ruby-2.1.0/gems/actionpack-4.0.0/lib/action_controller/metal/rendering.rb:10:in `process_action'
+/Users/shopuz/.rvm/gems/ruby-2.1.0/gems/actionpack-4.0.0/lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+/Users/shopuz/.rvm/gems/ruby-2.1.0/gems/activesupport-4.0.0/lib/active_support/callbacks.rb:383:in `_run__1431207139217026117__process_action__callbacks'
+/Users/shopuz/.rvm/gems/ruby-2.1.0/gems/activesupport-4.0.0/lib/active_support/callbacks.rb:80:in `run_callbacks'
+/Users/shopuz/.rvm/gems/ruby-2.1.0/gems/actionpack-4.0.0/lib/abstract_controller/callbacks.rb:17:in `process_action'
+/Users/shopuz/.rvm/gems/ruby-2.1.0/gems/actionpack-4.0.0/lib/action_controller/metal/rescue.rb:29:in `process_action'
+/Users/shopuz/.rvm/gems/ruby-2.1.0/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+/Users/shopuz/.rvm/gems/ruby-2.1.0/gems/activesupport-4.0.0/lib/active_support/notifications.rb:159:in `block in instrument'
+/Users/shopuz/.rvm/gems/ruby-2.1.0/gems/activesupport-4.0.0/lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+/Users/shopuz/.rvm/gems/ruby-2.1.0/gems/activesupport-4.0.0/lib/active_support/notifications.rb:159:in `instrument'
+/Users/shopuz/.rvm/gems/ruby-2.1.0/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+/Users/shopuz/.rvm/gems/ruby-2.1.0/gems/actionpack-4.0.0/lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+/Users/shopuz/.rvm/gems/ruby-2.1.0/gems/activerecord-4.0.0/lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+/Users/shopuz/.rvm/gems/ruby-2.1.0/gems/actionpack-4.0.0/lib/abstract_controller/base.rb:136:in `process'
+/Users/shopuz/.rvm/gems/ruby-2.1.0/gems/actionpack-4.0.0/lib/abstract_controller/rendering.rb:44:in `process'
+/Users/shopuz/.rvm/gems/ruby-2.1.0/gems/actionpack-4.0.0/lib/action_controller/metal.rb:195:in `dispatch'
+/Users/shopuz/.rvm/gems/ruby-2.1.0/gems/actionpack-4.0.0/lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+/Users/shopuz/.rvm/gems/ruby-2.1.0/gems/actionpack-4.0.0/lib/action_controller/metal.rb:231:in `block in action'
+/Users/shopuz/.rvm/gems/ruby-2.1.0/gems/actionpack-4.0.0/lib/action_dispatch/routing/route_set.rb:80:in `call'
+/Users/shopuz/.rvm/gems/ruby-2.1.0/gems/actionpack-4.0.0/lib/action_dispatch/routing/route_set.rb:80:in `dispatch'
+/Users/shopuz/.rvm/gems/ruby-2.1.0/gems/actionpack-4.0.0/lib/action_dispatch/routing/route_set.rb:48:in `call'
+/Users/shopuz/.rvm/gems/ruby-2.1.0/gems/actionpack-4.0.0/lib/action_dispatch/journey/router.rb:71:in `block in call'
+/Users/shopuz/.rvm/gems/ruby-2.1.0/gems/actionpack-4.0.0/lib/action_dispatch/journey/router.rb:59:in `each'
+/Users/shopuz/.rvm/gems/ruby-2.1.0/gems/actionpack-4.0.0/lib/action_dispatch/journey/router.rb:59:in `call'
+/Users/shopuz/.rvm/gems/ruby-2.1.0/gems/actionpack-4.0.0/lib/action_dispatch/routing/route_set.rb:655:in `call'
+/Users/shopuz/.rvm/gems/ruby-2.1.0/gems/rack-1.5.2/lib/rack/etag.rb:23:in `call'
+/Users/shopuz/.rvm/gems/ruby-2.1.0/gems/rack-1.5.2/lib/rack/conditionalget.rb:25:in `call'
+/Users/shopuz/.rvm/gems/ruby-2.1.0/gems/rack-1.5.2/lib/rack/head.rb:11:in `call'
+/Users/shopuz/.rvm/gems/ruby-2.1.0/gems/actionpack-4.0.0/lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+/Users/shopuz/.rvm/gems/ruby-2.1.0/gems/actionpack-4.0.0/lib/action_dispatch/middleware/flash.rb:241:in `call'
+/Users/shopuz/.rvm/gems/ruby-2.1.0/gems/rack-1.5.2/lib/rack/session/abstract/id.rb:225:in `context'
+/Users/shopuz/.rvm/gems/ruby-2.1.0/gems/rack-1.5.2/lib/rack/session/abstract/id.rb:220:in `call'
+/Users/shopuz/.rvm/gems/ruby-2.1.0/gems/actionpack-4.0.0/lib/action_dispatch/middleware/cookies.rb:486:in `call'
+/Users/shopuz/.rvm/gems/ruby-2.1.0/gems/activerecord-4.0.0/lib/active_record/query_cache.rb:36:in `call'
+/Users/shopuz/.rvm/gems/ruby-2.1.0/gems/activerecord-4.0.0/lib/active_record/connection_adapters/abstract/connection_pool.rb:626:in `call'
+/Users/shopuz/.rvm/gems/ruby-2.1.0/gems/activerecord-4.0.0/lib/active_record/migration.rb:369:in `call'
+/Users/shopuz/.rvm/gems/ruby-2.1.0/gems/actionpack-4.0.0/lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+/Users/shopuz/.rvm/gems/ruby-2.1.0/gems/activesupport-4.0.0/lib/active_support/callbacks.rb:373:in `_run__1936807425074195650__call__callbacks'
+/Users/shopuz/.rvm/gems/ruby-2.1.0/gems/activesupport-4.0.0/lib/active_support/callbacks.rb:80:in `run_callbacks'
+/Users/shopuz/.rvm/gems/ruby-2.1.0/gems/actionpack-4.0.0/lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+/Users/shopuz/.rvm/gems/ruby-2.1.0/gems/actionpack-4.0.0/lib/action_dispatch/middleware/reloader.rb:64:in `call'
+/Users/shopuz/.rvm/gems/ruby-2.1.0/gems/actionpack-4.0.0/lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+/Users/shopuz/.rvm/gems/ruby-2.1.0/gems/actionpack-4.0.0/lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+/Users/shopuz/.rvm/gems/ruby-2.1.0/gems/actionpack-4.0.0/lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+/Users/shopuz/.rvm/gems/ruby-2.1.0/gems/railties-4.0.0/lib/rails/rack/logger.rb:38:in `call_app'
+/Users/shopuz/.rvm/gems/ruby-2.1.0/gems/railties-4.0.0/lib/rails/rack/logger.rb:21:in `block in call'
+/Users/shopuz/.rvm/gems/ruby-2.1.0/gems/activesupport-4.0.0/lib/active_support/tagged_logging.rb:67:in `block in tagged'
+/Users/shopuz/.rvm/gems/ruby-2.1.0/gems/activesupport-4.0.0/lib/active_support/tagged_logging.rb:25:in `tagged'
+/Users/shopuz/.rvm/gems/ruby-2.1.0/gems/activesupport-4.0.0/lib/active_support/tagged_logging.rb:67:in `tagged'
+/Users/shopuz/.rvm/gems/ruby-2.1.0/gems/railties-4.0.0/lib/rails/rack/logger.rb:21:in `call'
+/Users/shopuz/.rvm/gems/ruby-2.1.0/gems/actionpack-4.0.0/lib/action_dispatch/middleware/request_id.rb:21:in `call'
+/Users/shopuz/.rvm/gems/ruby-2.1.0/gems/rack-1.5.2/lib/rack/methodoverride.rb:21:in `call'
+/Users/shopuz/.rvm/gems/ruby-2.1.0/gems/rack-1.5.2/lib/rack/runtime.rb:17:in `call'
+/Users/shopuz/.rvm/gems/ruby-2.1.0/gems/activesupport-4.0.0/lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+/Users/shopuz/.rvm/gems/ruby-2.1.0/gems/rack-1.5.2/lib/rack/lock.rb:17:in `call'
+/Users/shopuz/.rvm/gems/ruby-2.1.0/gems/actionpack-4.0.0/lib/action_dispatch/middleware/static.rb:64:in `call'
+/Users/shopuz/.rvm/gems/ruby-2.1.0/gems/railties-4.0.0/lib/rails/engine.rb:511:in `call'
+/Users/shopuz/.rvm/gems/ruby-2.1.0/gems/railties-4.0.0/lib/rails/application.rb:97:in `call'
+/Users/shopuz/.rvm/gems/ruby-2.1.0/gems/rack-1.5.2/lib/rack/lock.rb:17:in `call'
+/Users/shopuz/.rvm/gems/ruby-2.1.0/gems/rack-1.5.2/lib/rack/content_length.rb:14:in `call'
+/Users/shopuz/.rvm/gems/ruby-2.1.0/gems/rack-1.5.2/lib/rack/handler/webrick.rb:60:in `service'
+/Users/shopuz/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+/Users/shopuz/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+/Users/shopuz/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+  Rendered sections/new.html.erb within layouts/admin (3.1ms)
+Completed 500 Internal Server Error in 5ms
+
+ActionView::Template::Error (/Users/shopuz/Projects/Timepass/simple_cms_rails/app/views/sections/new.html.erb:10: syntax error, unexpected =>, expecting ')'
+...l => 'form', :locals => {(:f => f)}) );@output_buffer.safe_a...
+...                               ^
+/Users/shopuz/Projects/Timepass/simple_cms_rails/app/views/sections/new.html.erb:16: syntax error, unexpected keyword_end, expecting ')'
+';   end 
+        ^
+/Users/shopuz/Projects/Timepass/simple_cms_rails/app/views/sections/new.html.erb:19: syntax error, unexpected keyword_ensure, expecting ')'
+/Users/shopuz/Projects/Timepass/simple_cms_rails/app/views/sections/new.html.erb:21: syntax error, unexpected keyword_end, expecting ')'):
+     7: 
+     8:   <%= form_for(:section, :url => {:action => 'create'}) do |f| %>
+     9: 
+    10:     <%= render(:partial => 'form', :locals => {(:f => f)}) %>
+    11: 
+    12:     <div class="form-buttons">
+    13:       <%= submit_tag("Create Section") %>
+  actionpack (4.0.0) lib/action_view/template.rb:299:in `module_eval'
+  actionpack (4.0.0) lib/action_view/template.rb:299:in `compile'
+  actionpack (4.0.0) lib/action_view/template.rb:248:in `block in compile!'
+  actionpack (4.0.0) lib/action_view/template.rb:236:in `synchronize'
+  actionpack (4.0.0) lib/action_view/template.rb:236:in `compile!'
+  actionpack (4.0.0) lib/action_view/template.rb:142:in `block in render'
+  activesupport (4.0.0) lib/active_support/notifications.rb:161:in `instrument'
+  actionpack (4.0.0) lib/action_view/template.rb:141:in `render'
+  actionpack (4.0.0) lib/action_view/renderer/template_renderer.rb:49:in `block (2 levels) in render_template'
+  actionpack (4.0.0) lib/action_view/renderer/abstract_renderer.rb:38:in `block in instrument'
+  activesupport (4.0.0) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.0.0) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.0.0) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.0.0) lib/action_view/renderer/abstract_renderer.rb:38:in `instrument'
+  actionpack (4.0.0) lib/action_view/renderer/template_renderer.rb:48:in `block in render_template'
+  actionpack (4.0.0) lib/action_view/renderer/template_renderer.rb:56:in `render_with_layout'
+  actionpack (4.0.0) lib/action_view/renderer/template_renderer.rb:47:in `render_template'
+  actionpack (4.0.0) lib/action_view/renderer/template_renderer.rb:17:in `render'
+  actionpack (4.0.0) lib/action_view/renderer/renderer.rb:42:in `render_template'
+  actionpack (4.0.0) lib/action_view/renderer/renderer.rb:23:in `render'
+  actionpack (4.0.0) lib/abstract_controller/rendering.rb:127:in `_render_template'
+  actionpack (4.0.0) lib/action_controller/metal/streaming.rb:219:in `_render_template'
+  actionpack (4.0.0) lib/abstract_controller/rendering.rb:120:in `render_to_body'
+  actionpack (4.0.0) lib/action_controller/metal/rendering.rb:33:in `render_to_body'
+  actionpack (4.0.0) lib/action_controller/metal/renderers.rb:26:in `render_to_body'
+  actionpack (4.0.0) lib/abstract_controller/rendering.rb:97:in `render'
+  actionpack (4.0.0) lib/action_controller/metal/rendering.rb:16:in `render'
+  actionpack (4.0.0) lib/action_controller/metal/instrumentation.rb:41:in `block (2 levels) in render'
+  activesupport (4.0.0) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+  /Users/shopuz/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/benchmark.rb:294:in `realtime'
+  activesupport (4.0.0) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  actionpack (4.0.0) lib/action_controller/metal/instrumentation.rb:41:in `block in render'
+  actionpack (4.0.0) lib/action_controller/metal/instrumentation.rb:84:in `cleanup_view_runtime'
+  activerecord (4.0.0) lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  actionpack (4.0.0) lib/action_controller/metal/instrumentation.rb:40:in `render'
+  actionpack (4.0.0) lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  actionpack (4.0.0) lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  actionpack (4.0.0) lib/abstract_controller/base.rb:189:in `process_action'
+  actionpack (4.0.0) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.0.0) lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+  activesupport (4.0.0) lib/active_support/callbacks.rb:383:in `_run__1431207139217026117__process_action__callbacks'
+  activesupport (4.0.0) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.0) lib/abstract_controller/callbacks.rb:17:in `process_action'
+  actionpack (4.0.0) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.0.0) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.0.0) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.0.0) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.0.0) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.0.0) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.0.0) lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+  activerecord (4.0.0) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.0.0) lib/abstract_controller/base.rb:136:in `process'
+  actionpack (4.0.0) lib/abstract_controller/rendering.rb:44:in `process'
+  actionpack (4.0.0) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.0.0) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.0.0) lib/action_controller/metal.rb:231:in `block in action'
+  actionpack (4.0.0) lib/action_dispatch/routing/route_set.rb:80:in `call'
+  actionpack (4.0.0) lib/action_dispatch/routing/route_set.rb:80:in `dispatch'
+  actionpack (4.0.0) lib/action_dispatch/routing/route_set.rb:48:in `call'
+  actionpack (4.0.0) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.0.0) lib/action_dispatch/journey/router.rb:59:in `each'
+  actionpack (4.0.0) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.0.0) lib/action_dispatch/routing/route_set.rb:655:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/flash.rb:241:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/cookies.rb:486:in `call'
+  activerecord (4.0.0) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:626:in `call'
+  activerecord (4.0.0) lib/active_record/migration.rb:369:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.0.0) lib/active_support/callbacks.rb:373:in `_run__1936807425074195650__call__callbacks'
+  activesupport (4.0.0) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/reloader.rb:64:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `block in call'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.0) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/static.rb:64:in `call'
+  railties (4.0.0) lib/rails/engine.rb:511:in `call'
+  railties (4.0.0) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/shopuz/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/shopuz/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/shopuz/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/shopuz/.rvm/gems/ruby-2.1.0/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+  Rendered /Users/shopuz/.rvm/gems/ruby-2.1.0/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.5ms)
+  Rendered /Users/shopuz/.rvm/gems/ruby-2.1.0/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (9.1ms)
+
+
+Started GET "/sections/new" for 127.0.0.1 at 2014-05-04 11:03:37 +1000
+Processing by SectionsController#new as HTML
+  Rendered sections/_form.html.erb (19.7ms)
+  Rendered sections/new.html.erb within layouts/admin (22.5ms)
+Completed 200 OK in 26ms (Views: 26.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-04 11:03:37 +1000
+
+
+Started GET "/assets/public.css?body=1" for 127.0.0.1 at 2014-05-04 11:03:37 +1000
+
+
+Started GET "/assets/demo.css?body=1" for 127.0.0.1 at 2014-05-04 11:03:37 +1000
+
+
+Started GET "/assets/section.css?body=1" for 127.0.0.1 at 2014-05-04 11:03:37 +1000
+
+
+Started GET "/assets/pages.css?body=1" for 127.0.0.1 at 2014-05-04 11:03:37 +1000
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2014-05-04 11:03:37 +1000
+
+
+Started GET "/assets/subjects.css?body=1" for 127.0.0.1 at 2014-05-04 11:03:37 +1000
+
+
+Started GET "/sections/new" for 127.0.0.1 at 2014-05-04 11:03:52 +1000
+Processing by SectionsController#new as HTML
+  Rendered sections/_form.html.erb (2.4ms)
+  Rendered sections/new.html.erb within layouts/admin (4.4ms)
+Completed 200 OK in 9ms (Views: 8.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-04 11:03:52 +1000
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2014-05-04 11:03:52 +1000
+
+
+Started GET "/assets/demo.css?body=1" for 127.0.0.1 at 2014-05-04 11:03:52 +1000
+
+
+Started GET "/assets/public.css?body=1" for 127.0.0.1 at 2014-05-04 11:03:52 +1000
+
+
+Started GET "/assets/section.css?body=1" for 127.0.0.1 at 2014-05-04 11:03:52 +1000
+
+
+Started GET "/assets/subjects.css?body=1" for 127.0.0.1 at 2014-05-04 11:03:52 +1000
+
+
+Started GET "/assets/pages.css?body=1" for 127.0.0.1 at 2014-05-04 11:03:52 +1000
+
+
+Started GET "/sections" for 127.0.0.1 at 2014-05-04 11:03:55 +1000
+Processing by SectionsController#index as HTML
+  [1m[35mSection Load (0.3ms)[0m  SELECT `sections`.* FROM `sections` ORDER BY sections.position ASC
+  Rendered sections/index.html.erb within layouts/admin (3.3ms)
+Completed 200 OK in 7ms (Views: 6.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-04 11:03:55 +1000
+
+
+Started GET "/assets/pages.css?body=1" for 127.0.0.1 at 2014-05-04 11:03:55 +1000
+
+
+Started GET "/assets/demo.css?body=1" for 127.0.0.1 at 2014-05-04 11:03:55 +1000
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2014-05-04 11:03:55 +1000
+
+
+Started GET "/assets/public.css?body=1" for 127.0.0.1 at 2014-05-04 11:03:55 +1000
+
+
+Started GET "/assets/section.css?body=1" for 127.0.0.1 at 2014-05-04 11:03:55 +1000
+
+
+Started GET "/assets/subjects.css?body=1" for 127.0.0.1 at 2014-05-04 11:03:55 +1000
+
+
+Started GET "/pages" for 127.0.0.1 at 2014-05-04 11:04:01 +1000
+Processing by PagesController#index as HTML
+  [1m[36mPage Load (0.3ms)[0m  [1mSELECT `pages`.* FROM `pages` ORDER BY pages.position ASC[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `sections` WHERE `sections`.`page_id` = 2
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `sections` WHERE `sections`.`page_id` = 3[0m
+  Rendered pages/index.html.erb within layouts/admin (55.4ms)
+Completed 200 OK in 66ms (Views: 39.8ms | ActiveRecord: 20.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-04 11:04:01 +1000
+
+
+Started GET "/assets/public.css?body=1" for 127.0.0.1 at 2014-05-04 11:04:01 +1000
+
+
+Started GET "/assets/pages.css?body=1" for 127.0.0.1 at 2014-05-04 11:04:01 +1000
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2014-05-04 11:04:01 +1000
+
+
+Started GET "/assets/demo.css?body=1" for 127.0.0.1 at 2014-05-04 11:04:01 +1000
+
+
+Started GET "/assets/section.css?body=1" for 127.0.0.1 at 2014-05-04 11:04:01 +1000
+
+
+Started GET "/assets/subjects.css?body=1" for 127.0.0.1 at 2014-05-04 11:04:01 +1000
+
+
+Started GET "/pages/new" for 127.0.0.1 at 2014-05-04 11:04:03 +1000
+Processing by PagesController#new as HTML
+  Rendered pages/_form.html.erb (2.9ms)
+  Rendered pages/new.html.erb within layouts/admin (5.3ms)
+Completed 200 OK in 11ms (Views: 9.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-04 11:04:03 +1000
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2014-05-04 11:04:03 +1000
+
+
+Started GET "/assets/demo.css?body=1" for 127.0.0.1 at 2014-05-04 11:04:03 +1000
+
+
+Started GET "/assets/pages.css?body=1" for 127.0.0.1 at 2014-05-04 11:04:03 +1000
+
+
+Started GET "/assets/public.css?body=1" for 127.0.0.1 at 2014-05-04 11:04:03 +1000
+
+
+Started GET "/assets/subjects.css?body=1" for 127.0.0.1 at 2014-05-04 11:04:03 +1000
+
+
+Started GET "/assets/section.css?body=1" for 127.0.0.1 at 2014-05-04 11:04:03 +1000
+
+
+Started GET "/sections/new" for 127.0.0.1 at 2014-05-04 11:04:18 +1000
+Processing by SectionsController#new as HTML
+  Rendered sections/_form.html.erb (2.5ms)
+  Rendered sections/new.html.erb within layouts/admin (4.4ms)
+Completed 200 OK in 8ms (Views: 7.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-04 11:04:18 +1000
+
+
+Started GET "/assets/public.css?body=1" for 127.0.0.1 at 2014-05-04 11:04:18 +1000
+
+
+Started GET "/assets/demo.css?body=1" for 127.0.0.1 at 2014-05-04 11:04:18 +1000
+
+
+Started GET "/assets/pages.css?body=1" for 127.0.0.1 at 2014-05-04 11:04:18 +1000
+
+
+Started GET "/assets/section.css?body=1" for 127.0.0.1 at 2014-05-04 11:04:18 +1000
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2014-05-04 11:04:18 +1000
+
+
+Started GET "/assets/subjects.css?body=1" for 127.0.0.1 at 2014-05-04 11:04:18 +1000
+
+
+Started GET "/subjects/new" for 127.0.0.1 at 2014-05-04 11:07:36 +1000
+Processing by SubjectsController#new as HTML
+  [1m[35m (2.1ms)[0m  SELECT COUNT(*) FROM `subjects`
+  Rendered subjects/_form.html.erb (7.3ms)
+  Rendered subjects/new.html.erb within layouts/admin (11.4ms)
+Completed 200 OK in 60ms (Views: 20.9ms | ActiveRecord: 21.6ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-04 11:07:37 +1000
+
+
+Started GET "/assets/demo.css?body=1" for 127.0.0.1 at 2014-05-04 11:07:37 +1000
+
+
+Started GET "/assets/public.css?body=1" for 127.0.0.1 at 2014-05-04 11:07:37 +1000
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2014-05-04 11:07:37 +1000
+
+
+Started GET "/assets/pages.css?body=1" for 127.0.0.1 at 2014-05-04 11:07:37 +1000
+
+
+Started GET "/assets/section.css?body=1" for 127.0.0.1 at 2014-05-04 11:07:37 +1000
+
+
+Started GET "/assets/subjects.css?body=1" for 127.0.0.1 at 2014-05-04 11:07:37 +1000
+
+
+Started GET "/subjects" for 127.0.0.1 at 2014-05-04 11:07:42 +1000
+Processing by SubjectsController#index as HTML
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `subjects`[0m
+  [1m[35mSubject Load (0.3ms)[0m  SELECT `subjects`.* FROM `subjects` ORDER BY subjects.position ASC
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `pages` WHERE `pages`.`subject_id` = 1[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `pages` WHERE `pages`.`subject_id` = 2
+  Rendered subjects/index.html.erb within layouts/admin (36.4ms)
+Completed 200 OK in 48ms (Views: 26.8ms | ActiveRecord: 20.7ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2014-05-04 11:07:42 +1000
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-04 11:07:42 +1000
+
+
+Started GET "/assets/pages.css?body=1" for 127.0.0.1 at 2014-05-04 11:07:42 +1000
+
+
+Started GET "/assets/demo.css?body=1" for 127.0.0.1 at 2014-05-04 11:07:42 +1000
+
+
+Started GET "/assets/public.css?body=1" for 127.0.0.1 at 2014-05-04 11:07:42 +1000
+
+
+Started GET "/assets/section.css?body=1" for 127.0.0.1 at 2014-05-04 11:07:42 +1000
+
+
+Started GET "/assets/subjects.css?body=1" for 127.0.0.1 at 2014-05-04 11:07:42 +1000
+
+
+Started GET "/assets/plus_sign.png" for 127.0.0.1 at 2014-05-04 11:07:42 +1000
+
+
+Started GET "/subjects/edit/1" for 127.0.0.1 at 2014-05-04 11:07:45 +1000
+Processing by SubjectsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSubject Load (6.4ms)[0m  [1mSELECT `subjects`.* FROM `subjects` WHERE `subjects`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM `subjects`
+  Rendered subjects/_form.html.erb (2.1ms)
+  Rendered subjects/edit.html.erb within layouts/admin (4.5ms)
+Completed 200 OK in 18ms (Views: 8.2ms | ActiveRecord: 6.8ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2014-05-04 11:07:46 +1000
+
+
+Started GET "/assets/demo.css?body=1" for 127.0.0.1 at 2014-05-04 11:07:46 +1000
+
+
+Started GET "/assets/pages.css?body=1" for 127.0.0.1 at 2014-05-04 11:07:46 +1000
+
+
+Started GET "/assets/public.css?body=1" for 127.0.0.1 at 2014-05-04 11:07:46 +1000
+
+
+Started GET "/assets/section.css?body=1" for 127.0.0.1 at 2014-05-04 11:07:46 +1000
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-04 11:07:46 +1000
+
+
+Started GET "/assets/subjects.css?body=1" for 127.0.0.1 at 2014-05-04 11:07:46 +1000
+
+
+Started GET "/subjects/new" for 127.0.0.1 at 2014-05-04 11:07:54 +1000
+Processing by SubjectsController#new as HTML
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `subjects`[0m
+  Rendered subjects/_form.html.erb (1.4ms)
+  Rendered subjects/new.html.erb within layouts/admin (6.6ms)
+Completed 200 OK in 11ms (Views: 9.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/public.css?body=1" for 127.0.0.1 at 2014-05-04 11:07:54 +1000
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-04 11:07:54 +1000
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2014-05-04 11:07:54 +1000
+
+
+Started GET "/assets/section.css?body=1" for 127.0.0.1 at 2014-05-04 11:07:54 +1000
+
+
+Started GET "/assets/pages.css?body=1" for 127.0.0.1 at 2014-05-04 11:07:54 +1000
+
+
+Started GET "/assets/demo.css?body=1" for 127.0.0.1 at 2014-05-04 11:07:54 +1000
+
+
+Started GET "/assets/subjects.css?body=1" for 127.0.0.1 at 2014-05-04 11:07:54 +1000
+
+
+Started GET "/pages/new" for 127.0.0.1 at 2014-05-04 11:11:02 +1000
+Processing by PagesController#new as HTML
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `pages`
+  [1m[36mSubject Load (0.3ms)[0m  [1mSELECT `subjects`.* FROM `subjects` ORDER BY position ASC[0m
+  Rendered pages/_form.html.erb (46.8ms)
+  Rendered pages/new.html.erb within layouts/admin (48.7ms)
+Completed 200 OK in 66ms (Views: 39.9ms | ActiveRecord: 19.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-04 11:11:02 +1000
+
+
+Started GET "/assets/pages.css?body=1" for 127.0.0.1 at 2014-05-04 11:11:02 +1000
+
+
+Started GET "/assets/public.css?body=1" for 127.0.0.1 at 2014-05-04 11:11:02 +1000
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2014-05-04 11:11:02 +1000
+
+
+Started GET "/assets/subjects.css?body=1" for 127.0.0.1 at 2014-05-04 11:11:02 +1000
+
+
+Started GET "/assets/section.css?body=1" for 127.0.0.1 at 2014-05-04 11:11:02 +1000
+
+
+Started GET "/assets/demo.css?body=1" for 127.0.0.1 at 2014-05-04 11:11:02 +1000
+
+
+Started GET "/pages/edit/" for 127.0.0.1 at 2014-05-04 11:11:12 +1000
+Processing by PagesController#edit as HTML
+Completed 404 Not Found in 1ms
+
+ActiveRecord::RecordNotFound (Couldn't find Page without an ID):
+  app/controllers/pages_controller.rb:34:in `edit'
+
+
+  Rendered /Users/shopuz/.rvm/gems/ruby-2.1.0/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.6ms)
+  Rendered /Users/shopuz/.rvm/gems/ruby-2.1.0/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+  Rendered /Users/shopuz/.rvm/gems/ruby-2.1.0/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.3ms)
+  Rendered /Users/shopuz/.rvm/gems/ruby-2.1.0/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (14.2ms)
+
+
+Started GET "/pages/edit/4" for 127.0.0.1 at 2014-05-04 11:11:15 +1000
+Processing by PagesController#edit as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mPage Load (0.2ms)[0m  SELECT `pages`.* FROM `pages` WHERE `pages`.`id` = 4 LIMIT 1
+Completed 404 Not Found in 1ms
+
+ActiveRecord::RecordNotFound (Couldn't find Page with id=4):
+  app/controllers/pages_controller.rb:34:in `edit'
+
+
+  Rendered /Users/shopuz/.rvm/gems/ruby-2.1.0/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.5ms)
+  Rendered /Users/shopuz/.rvm/gems/ruby-2.1.0/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+  Rendered /Users/shopuz/.rvm/gems/ruby-2.1.0/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.7ms)
+  Rendered /Users/shopuz/.rvm/gems/ruby-2.1.0/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (11.5ms)
+
+
+Started GET "/pages" for 127.0.0.1 at 2014-05-04 11:11:19 +1000
+Processing by PagesController#index as HTML
+  [1m[36mPage Load (0.4ms)[0m  [1mSELECT `pages`.* FROM `pages` ORDER BY pages.position ASC[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `sections` WHERE `sections`.`page_id` = 2
+  [1m[36m (1.0ms)[0m  [1mSELECT COUNT(*) FROM `sections` WHERE `sections`.`page_id` = 3[0m
+  Rendered pages/index.html.erb within layouts/admin (33.6ms)
+Completed 200 OK in 46ms (Views: 25.5ms | ActiveRecord: 20.6ms)
+
+
+Started GET "/assets/demo.css?body=1" for 127.0.0.1 at 2014-05-04 11:11:19 +1000
+
+
+Started GET "/assets/pages.css?body=1" for 127.0.0.1 at 2014-05-04 11:11:19 +1000
+
+
+Started GET "/assets/public.css?body=1" for 127.0.0.1 at 2014-05-04 11:11:19 +1000
+
+
+Started GET "/assets/section.css?body=1" for 127.0.0.1 at 2014-05-04 11:11:19 +1000
+
+
+Started GET "/assets/subjects.css?body=1" for 127.0.0.1 at 2014-05-04 11:11:19 +1000
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2014-05-04 11:11:19 +1000
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-04 11:11:19 +1000
+
+
+Started GET "/pages/edit/2" for 127.0.0.1 at 2014-05-04 11:11:21 +1000
+Processing by PagesController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mPage Load (0.6ms)[0m  SELECT `pages`.* FROM `pages` WHERE `pages`.`id` = 2 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `pages`[0m
+  Rendered pages/edit.html.erb within layouts/admin (2.8ms)
+Completed 200 OK in 17ms (Views: 13.7ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/assets/public.css?body=1" for 127.0.0.1 at 2014-05-04 11:11:21 +1000
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2014-05-04 11:11:21 +1000
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-04 11:11:21 +1000
+
+
+Started GET "/assets/demo.css?body=1" for 127.0.0.1 at 2014-05-04 11:11:21 +1000
+
+
+Started GET "/assets/pages.css?body=1" for 127.0.0.1 at 2014-05-04 11:11:21 +1000
+
+
+Started GET "/assets/subjects.css?body=1" for 127.0.0.1 at 2014-05-04 11:11:21 +1000
+
+
+Started GET "/assets/section.css?body=1" for 127.0.0.1 at 2014-05-04 11:11:21 +1000
+
+
+Started GET "/pages/edit/3" for 127.0.0.1 at 2014-05-04 11:11:40 +1000
+Processing by PagesController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mPage Load (0.4ms)[0m  SELECT `pages`.* FROM `pages` WHERE `pages`.`id` = 3 LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `pages`[0m
+  Rendered pages/edit.html.erb within layouts/admin (1.4ms)
+Completed 200 OK in 6ms (Views: 4.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-04 11:11:40 +1000
+
+
+Started GET "/assets/pages.css?body=1" for 127.0.0.1 at 2014-05-04 11:11:40 +1000
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2014-05-04 11:11:40 +1000
+
+
+Started GET "/assets/public.css?body=1" for 127.0.0.1 at 2014-05-04 11:11:40 +1000
+
+
+Started GET "/assets/demo.css?body=1" for 127.0.0.1 at 2014-05-04 11:11:40 +1000
+
+
+Started GET "/assets/section.css?body=1" for 127.0.0.1 at 2014-05-04 11:11:40 +1000
+
+
+Started GET "/assets/subjects.css?body=1" for 127.0.0.1 at 2014-05-04 11:11:40 +1000
+
+
+Started GET "/pages/edit/3" for 127.0.0.1 at 2014-05-04 11:12:14 +1000
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by PagesController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mPage Load (0.2ms)[0m  SELECT `pages`.* FROM `pages` WHERE `pages`.`id` = 3 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `pages`[0m
+  Rendered pages/edit.html.erb within layouts/admin (26.1ms)
+Completed 200 OK in 111ms (Views: 60.9ms | ActiveRecord: 19.4ms)
+
+
+Started GET "/assets/public.css?body=1" for 127.0.0.1 at 2014-05-04 11:12:14 +1000
+
+
+Started GET "/assets/pages.css?body=1" for 127.0.0.1 at 2014-05-04 11:12:14 +1000
+
+
+Started GET "/assets/demo.css?body=1" for 127.0.0.1 at 2014-05-04 11:12:14 +1000
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-04 11:12:14 +1000
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2014-05-04 11:12:14 +1000
+
+
+Started GET "/assets/section.css?body=1" for 127.0.0.1 at 2014-05-04 11:12:14 +1000
+
+
+Started GET "/assets/subjects.css?body=1" for 127.0.0.1 at 2014-05-04 11:12:14 +1000
+
+
+Started GET "/pages/edit/3" for 127.0.0.1 at 2014-05-04 11:12:15 +1000
+Processing by PagesController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mPage Load (0.3ms)[0m  SELECT `pages`.* FROM `pages` WHERE `pages`.`id` = 3 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `pages`[0m
+  Rendered pages/edit.html.erb within layouts/admin (1.5ms)
+Completed 200 OK in 6ms (Views: 4.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-04 11:12:15 +1000
+
+
+Started GET "/assets/public.css?body=1" for 127.0.0.1 at 2014-05-04 11:12:15 +1000
+
+
+Started GET "/assets/pages.css?body=1" for 127.0.0.1 at 2014-05-04 11:12:15 +1000
+
+
+Started GET "/assets/demo.css?body=1" for 127.0.0.1 at 2014-05-04 11:12:15 +1000
+
+
+Started GET "/assets/subjects.css?body=1" for 127.0.0.1 at 2014-05-04 11:12:15 +1000
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2014-05-04 11:12:15 +1000
+
+
+Started GET "/assets/section.css?body=1" for 127.0.0.1 at 2014-05-04 11:12:15 +1000
+
+
+Started GET "/pages/edit/3" for 127.0.0.1 at 2014-05-04 11:13:01 +1000
+Processing by PagesController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mPage Load (0.3ms)[0m  SELECT `pages`.* FROM `pages` WHERE `pages`.`id` = 3 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `pages`[0m
+  [1m[35mSubject Load (0.3ms)[0m  SELECT `subjects`.* FROM `subjects` ORDER BY position ASC
+  Rendered pages/_form.html.erb (46.5ms)
+  Rendered pages/edit.html.erb within layouts/admin (59.5ms)
+Completed 200 OK in 65ms (Views: 43.2ms | ActiveRecord: 20.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-04 11:13:01 +1000
+
+
+Started GET "/assets/public.css?body=1" for 127.0.0.1 at 2014-05-04 11:13:01 +1000
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2014-05-04 11:13:01 +1000
+
+
+Started GET "/assets/section.css?body=1" for 127.0.0.1 at 2014-05-04 11:13:01 +1000
+
+
+Started GET "/assets/subjects.css?body=1" for 127.0.0.1 at 2014-05-04 11:13:01 +1000
+
+
+Started GET "/assets/demo.css?body=1" for 127.0.0.1 at 2014-05-04 11:13:01 +1000
+
+
+Started GET "/assets/pages.css?body=1" for 127.0.0.1 at 2014-05-04 11:13:01 +1000
+
+
+Started GET "/pages/edit/3" for 127.0.0.1 at 2014-05-04 11:13:15 +1000
+Processing by PagesController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPage Load (0.6ms)[0m  [1mSELECT `pages`.* FROM `pages` WHERE `pages`.`id` = 3 LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `pages`
+  [1m[36mSubject Load (0.2ms)[0m  [1mSELECT `subjects`.* FROM `subjects` ORDER BY position ASC[0m
+  Rendered pages/_form.html.erb (2.7ms)
+  Rendered pages/edit.html.erb within layouts/admin (4.2ms)
+Completed 200 OK in 10ms (Views: 6.7ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/assets/demo.css?body=1" for 127.0.0.1 at 2014-05-04 11:13:15 +1000
+
+
+Started GET "/assets/public.css?body=1" for 127.0.0.1 at 2014-05-04 11:13:15 +1000
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2014-05-04 11:13:15 +1000
+
+
+Started GET "/assets/pages.css?body=1" for 127.0.0.1 at 2014-05-04 11:13:15 +1000
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-04 11:13:15 +1000
+
+
+Started GET "/assets/section.css?body=1" for 127.0.0.1 at 2014-05-04 11:13:15 +1000
+
+
+Started GET "/assets/subjects.css?body=1" for 127.0.0.1 at 2014-05-04 11:13:15 +1000
+
+
+Started POST "/pages/update/3" for 127.0.0.1 at 2014-05-04 11:13:19 +1000
+Processing by PagesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rcw2QVJX1w7yvq5Lk/HUYrQ+3mKh0CG1DvPDvnptgo8=", "page"=>{"subject_id"=>"2", "name"=>"second page", "permalink"=>"second", "position"=>"2", "visible"=>"0"}, "commit"=>"Update Page", "id"=>"3"}
+  [1m[35mPage Load (0.3ms)[0m  SELECT `pages`.* FROM `pages` WHERE `pages`.`id` = 3 LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (32.5ms)[0m  UPDATE `pages` SET `subject_id` = 2, `updated_at` = '2014-05-04 01:13:19' WHERE `pages`.`id` = 3
+  [1m[36m (1.5ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/pages/show/3
+Completed 302 Found in 43ms (ActiveRecord: 34.6ms)
+
+
+Started GET "/pages/show/3" for 127.0.0.1 at 2014-05-04 11:13:19 +1000
+Processing by PagesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mPage Load (0.2ms)[0m  SELECT `pages`.* FROM `pages` WHERE `pages`.`id` = 3 LIMIT 1
+  Rendered pages/show.html.erb within layouts/admin (1.0ms)
+Completed 200 OK in 5ms (Views: 4.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-04 11:13:19 +1000
+
+
+Started GET "/assets/demo.css?body=1" for 127.0.0.1 at 2014-05-04 11:13:19 +1000
+
+
+Started GET "/assets/section.css?body=1" for 127.0.0.1 at 2014-05-04 11:13:19 +1000
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2014-05-04 11:13:19 +1000
+
+
+Started GET "/assets/public.css?body=1" for 127.0.0.1 at 2014-05-04 11:13:19 +1000
+
+
+Started GET "/assets/pages.css?body=1" for 127.0.0.1 at 2014-05-04 11:13:19 +1000
+
+
+Started GET "/assets/subjects.css?body=1" for 127.0.0.1 at 2014-05-04 11:13:19 +1000
+
+
+Started GET "/pages" for 127.0.0.1 at 2014-05-04 11:13:22 +1000
+Processing by PagesController#index as HTML
+  [1m[36mPage Load (0.5ms)[0m  [1mSELECT `pages`.* FROM `pages` ORDER BY pages.position ASC[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `sections` WHERE `sections`.`page_id` = 2
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM `sections` WHERE `sections`.`page_id` = 3[0m
+  Rendered pages/index.html.erb within layouts/admin (52.3ms)
+Completed 200 OK in 60ms (Views: 39.5ms | ActiveRecord: 19.9ms)
+
+
+Started GET "/assets/public.css?body=1" for 127.0.0.1 at 2014-05-04 11:13:22 +1000
+
+
+Started GET "/assets/section.css?body=1" for 127.0.0.1 at 2014-05-04 11:13:22 +1000
+
+
+Started GET "/assets/subjects.css?body=1" for 127.0.0.1 at 2014-05-04 11:13:22 +1000
+
+
+Started GET "/assets/demo.css?body=1" for 127.0.0.1 at 2014-05-04 11:13:22 +1000
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-04 11:13:22 +1000
+
+
+Started GET "/assets/pages.css?body=1" for 127.0.0.1 at 2014-05-04 11:13:22 +1000
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2014-05-04 11:13:22 +1000
+
+
+Started GET "/pages/new" for 127.0.0.1 at 2014-05-04 11:13:44 +1000
+Processing by PagesController#new as HTML
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM `pages`
+  [1m[36mSubject Load (0.3ms)[0m  [1mSELECT `subjects`.* FROM `subjects` ORDER BY position ASC[0m
+  Rendered pages/_form.html.erb (2.7ms)
+  Rendered pages/new.html.erb within layouts/admin (4.5ms)
+Completed 200 OK in 10ms (Views: 7.0ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-04 11:13:44 +1000
+
+
+Started GET "/assets/public.css?body=1" for 127.0.0.1 at 2014-05-04 11:13:44 +1000
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2014-05-04 11:13:44 +1000
+
+
+Started GET "/assets/section.css?body=1" for 127.0.0.1 at 2014-05-04 11:13:44 +1000
+
+
+Started GET "/assets/pages.css?body=1" for 127.0.0.1 at 2014-05-04 11:13:44 +1000
+
+
+Started GET "/assets/subjects.css?body=1" for 127.0.0.1 at 2014-05-04 11:13:44 +1000
+
+
+Started GET "/assets/demo.css?body=1" for 127.0.0.1 at 2014-05-04 11:13:44 +1000
+
+
+Started GET "/pages/new" for 127.0.0.1 at 2014-05-04 11:14:23 +1000
+Processing by PagesController#new as HTML
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `pages`
+  [1m[36mSubject Load (0.2ms)[0m  [1mSELECT `subjects`.* FROM `subjects` ORDER BY position ASC[0m
+  Rendered pages/_form.html.erb (2.8ms)
+  Rendered pages/new.html.erb within layouts/admin (4.5ms)
+Completed 200 OK in 10ms (Views: 8.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2014-05-04 11:14:23 +1000
+
+
+Started GET "/assets/pages.css?body=1" for 127.0.0.1 at 2014-05-04 11:14:23 +1000
+
+
+Started GET "/assets/public.css?body=1" for 127.0.0.1 at 2014-05-04 11:14:23 +1000
+
+
+Started GET "/assets/demo.css?body=1" for 127.0.0.1 at 2014-05-04 11:14:23 +1000
+
+
+Started GET "/assets/section.css?body=1" for 127.0.0.1 at 2014-05-04 11:14:23 +1000
+
+
+Started GET "/assets/subjects.css?body=1" for 127.0.0.1 at 2014-05-04 11:14:23 +1000
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-04 11:14:23 +1000
+
+
+Started GET "/pages" for 127.0.0.1 at 2014-05-04 11:14:25 +1000
+Processing by PagesController#index as HTML
+  [1m[35mPage Load (0.3ms)[0m  SELECT `pages`.* FROM `pages` ORDER BY pages.position ASC
+  [1m[36mSubject Load (0.5ms)[0m  [1mSELECT `subjects`.* FROM `subjects` WHERE `subjects`.`id` = 1 ORDER BY `subjects`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM `sections` WHERE `sections`.`page_id` = 2
+  [1m[36mSubject Load (0.3ms)[0m  [1mSELECT `subjects`.* FROM `subjects` WHERE `subjects`.`id` = 2 ORDER BY `subjects`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `sections` WHERE `sections`.`page_id` = 3
+  Rendered pages/index.html.erb within layouts/admin (22.4ms)
+Completed 200 OK in 26ms (Views: 24.3ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-04 11:14:25 +1000
+
+
+Started GET "/assets/section.css?body=1" for 127.0.0.1 at 2014-05-04 11:14:25 +1000
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2014-05-04 11:14:25 +1000
+
+
+Started GET "/assets/demo.css?body=1" for 127.0.0.1 at 2014-05-04 11:14:25 +1000
+
+
+Started GET "/assets/subjects.css?body=1" for 127.0.0.1 at 2014-05-04 11:14:25 +1000
+
+
+Started GET "/assets/pages.css?body=1" for 127.0.0.1 at 2014-05-04 11:14:25 +1000
+
+
+Started GET "/assets/public.css?body=1" for 127.0.0.1 at 2014-05-04 11:14:25 +1000
+
+
+Started GET "/pages" for 127.0.0.1 at 2014-05-04 11:14:26 +1000
+Processing by PagesController#index as HTML
+  [1m[36mPage Load (0.3ms)[0m  [1mSELECT `pages`.* FROM `pages` ORDER BY pages.position ASC[0m
+  [1m[35mSubject Load (0.2ms)[0m  SELECT `subjects`.* FROM `subjects` WHERE `subjects`.`id` = 1 ORDER BY `subjects`.`id` ASC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `sections` WHERE `sections`.`page_id` = 2[0m
+  [1m[35mSubject Load (0.4ms)[0m  SELECT `subjects`.* FROM `subjects` WHERE `subjects`.`id` = 2 ORDER BY `subjects`.`id` ASC LIMIT 1
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM `sections` WHERE `sections`.`page_id` = 3[0m
+  Rendered pages/index.html.erb within layouts/admin (8.2ms)
+Completed 200 OK in 11ms (Views: 9.6ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/assets/public.css?body=1" for 127.0.0.1 at 2014-05-04 11:14:26 +1000
+
+
+Started GET "/assets/demo.css?body=1" for 127.0.0.1 at 2014-05-04 11:14:26 +1000
+
+
+Started GET "/assets/section.css?body=1" for 127.0.0.1 at 2014-05-04 11:14:26 +1000
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2014-05-04 11:14:26 +1000
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-04 11:14:26 +1000
+
+
+Started GET "/assets/pages.css?body=1" for 127.0.0.1 at 2014-05-04 11:14:26 +1000
+
+
+Started GET "/assets/subjects.css?body=1" for 127.0.0.1 at 2014-05-04 11:14:26 +1000
+
+
+Started GET "/pages" for 127.0.0.1 at 2014-05-04 11:14:47 +1000
+Processing by PagesController#index as HTML
+  [1m[35mPage Load (0.3ms)[0m  SELECT `pages`.* FROM `pages` ORDER BY pages.position ASC
+  [1m[36mSubject Load (0.3ms)[0m  [1mSELECT `subjects`.* FROM `subjects` WHERE `subjects`.`id` = 1 ORDER BY `subjects`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `sections` WHERE `sections`.`page_id` = 2
+  [1m[36mSubject Load (0.2ms)[0m  [1mSELECT `subjects`.* FROM `subjects` WHERE `subjects`.`id` = 2 ORDER BY `subjects`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `sections` WHERE `sections`.`page_id` = 3
+  Rendered pages/index.html.erb within layouts/admin (8.5ms)
+Completed 200 OK in 13ms (Views: 11.5ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-04 11:14:47 +1000
+
+
+Started GET "/assets/section.css?body=1" for 127.0.0.1 at 2014-05-04 11:14:47 +1000
+
+
+Started GET "/assets/pages.css?body=1" for 127.0.0.1 at 2014-05-04 11:14:47 +1000
+
+
+Started GET "/assets/public.css?body=1" for 127.0.0.1 at 2014-05-04 11:14:47 +1000
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2014-05-04 11:14:47 +1000
+
+
+Started GET "/assets/demo.css?body=1" for 127.0.0.1 at 2014-05-04 11:14:47 +1000
+
+
+Started GET "/assets/subjects.css?body=1" for 127.0.0.1 at 2014-05-04 11:14:47 +1000
+
+
+Started GET "/sections" for 127.0.0.1 at 2014-05-04 11:18:20 +1000
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by SectionsController#index as HTML
+  [1m[35mSection Load (0.3ms)[0m  SELECT `sections`.* FROM `sections` ORDER BY sections.position ASC
+  Rendered sections/index.html.erb within layouts/admin (43.2ms)
+Completed 200 OK in 107ms (Views: 78.7ms | ActiveRecord: 20.0ms)
+
+
+Started GET "/assets/public.css?body=1" for 127.0.0.1 at 2014-05-04 11:18:20 +1000
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-04 11:18:20 +1000
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2014-05-04 11:18:20 +1000
+
+
+Started GET "/assets/demo.css?body=1" for 127.0.0.1 at 2014-05-04 11:18:20 +1000
+
+
+Started GET "/assets/subjects.css?body=1" for 127.0.0.1 at 2014-05-04 11:18:20 +1000
+
+
+Started GET "/assets/section.css?body=1" for 127.0.0.1 at 2014-05-04 11:18:20 +1000
+
+
+Started GET "/assets/pages.css?body=1" for 127.0.0.1 at 2014-05-04 11:18:20 +1000
+
+
+Started GET "/sections/edit/1" for 127.0.0.1 at 2014-05-04 11:18:25 +1000
+Processing by SectionsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSection Load (0.3ms)[0m  [1mSELECT `sections`.* FROM `sections` WHERE `sections`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `sections`
+  Rendered sections/_form.html.erb (8.3ms)
+  Rendered sections/edit.html.erb within layouts/admin (13.4ms)
+Completed 500 Internal Server Error in 18ms
+
+ActionView::Template::Error (undefined method `map' for nil:NilClass):
+    1: <table summary="Section form fields">
+    2:       <tr>
+    3:         <th><%= f.label(:page_id, "Page ID") %></th>
+    4:         <td><%= f.select(:page_id, @pages.map {|p| [p.name, p.id]}) %></td>
+    5:       </tr>
+    6:       <tr>
+    7:         <th><%= f.label(:name, "Name") %></th>
+  app/views/sections/_form.html.erb:4:in `_app_views_sections__form_html_erb__3979900736237574520_2185402960'
+  app/views/sections/edit.html.erb:10:in `block in _app_views_sections_edit_html_erb___1870315917512403903_2185578100'
+  app/views/sections/edit.html.erb:8:in `_app_views_sections_edit_html_erb___1870315917512403903_2185578100'
+
+
+  Rendered /Users/shopuz/.rvm/gems/ruby-2.1.0/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.5ms)
+  Rendered /Users/shopuz/.rvm/gems/ruby-2.1.0/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.5ms)
+  Rendered /Users/shopuz/.rvm/gems/ruby-2.1.0/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (10.9ms)
+
+
+Started GET "/sections/edit/1" for 127.0.0.1 at 2014-05-04 11:19:09 +1000
+Processing by SectionsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSection Load (0.2ms)[0m  [1mSELECT `sections`.* FROM `sections` WHERE `sections`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `sections`
+  [1m[36mPage Load (0.3ms)[0m  [1mSELECT `pages`.* FROM `pages` ORDER BY position ASC[0m
+  Rendered sections/_form.html.erb (51.6ms)
+  Rendered sections/edit.html.erb within layouts/admin (53.6ms)
+Completed 200 OK in 101ms (Views: 38.0ms | ActiveRecord: 28.5ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-04 11:19:09 +1000
+
+
+Started GET "/assets/public.css?body=1" for 127.0.0.1 at 2014-05-04 11:19:09 +1000
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2014-05-04 11:19:09 +1000
+
+
+Started GET "/assets/pages.css?body=1" for 127.0.0.1 at 2014-05-04 11:19:09 +1000
+
+
+Started GET "/assets/subjects.css?body=1" for 127.0.0.1 at 2014-05-04 11:19:09 +1000
+
+
+Started GET "/assets/demo.css?body=1" for 127.0.0.1 at 2014-05-04 11:19:09 +1000
+
+
+Started GET "/assets/section.css?body=1" for 127.0.0.1 at 2014-05-04 11:19:09 +1000
+
+
+Started POST "/sections/update/1" for 127.0.0.1 at 2014-05-04 11:19:17 +1000
+Processing by SectionsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rcw2QVJX1w7yvq5Lk/HUYrQ+3mKh0CG1DvPDvnptgo8=", "section"=>{"page_id"=>"2", "name"=>"Section one", "position"=>"1", "visible"=>"0", "content"=>""}, "commit"=>"Update Section", "id"=>"1"}
+  [1m[35mSection Load (0.3ms)[0m  SELECT `sections`.* FROM `sections` WHERE `sections`.`id` = 1 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (5.8ms)[0m  UPDATE `sections` SET `page_id` = 2, `content` = '', `updated_at` = '2014-05-04 01:19:17' WHERE `sections`.`id` = 1
+  [1m[36m (17.3ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/sections/show/1
+Completed 302 Found in 33ms (ActiveRecord: 23.6ms)
+
+
+Started GET "/sections/show/1" for 127.0.0.1 at 2014-05-04 11:19:17 +1000
+Processing by SectionsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mSection Load (0.2ms)[0m  SELECT `sections`.* FROM `sections` WHERE `sections`.`id` = 1 LIMIT 1
+  Rendered sections/show.html.erb within layouts/admin (1.1ms)
+Completed 200 OK in 6ms (Views: 4.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2014-05-04 11:19:17 +1000
+
+
+Started GET "/assets/demo.css?body=1" for 127.0.0.1 at 2014-05-04 11:19:17 +1000
+
+
+Started GET "/assets/public.css?body=1" for 127.0.0.1 at 2014-05-04 11:19:17 +1000
+
+
+Started GET "/assets/pages.css?body=1" for 127.0.0.1 at 2014-05-04 11:19:17 +1000
+
+
+Started GET "/assets/section.css?body=1" for 127.0.0.1 at 2014-05-04 11:19:17 +1000
+
+
+Started GET "/assets/subjects.css?body=1" for 127.0.0.1 at 2014-05-04 11:19:17 +1000
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-04 11:19:17 +1000
+
+
+Started GET "/sections" for 127.0.0.1 at 2014-05-04 11:19:19 +1000
+Processing by SectionsController#index as HTML
+  [1m[36mSection Load (0.4ms)[0m  [1mSELECT `sections`.* FROM `sections` ORDER BY sections.position ASC[0m
+  Rendered sections/index.html.erb within layouts/admin (2.5ms)
+Completed 200 OK in 6ms (Views: 5.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-04 11:19:19 +1000
+
+
+Started GET "/assets/public.css?body=1" for 127.0.0.1 at 2014-05-04 11:19:19 +1000
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2014-05-04 11:19:19 +1000
+
+
+Started GET "/assets/section.css?body=1" for 127.0.0.1 at 2014-05-04 11:19:19 +1000
+
+
+Started GET "/assets/pages.css?body=1" for 127.0.0.1 at 2014-05-04 11:19:19 +1000
+
+
+Started GET "/assets/demo.css?body=1" for 127.0.0.1 at 2014-05-04 11:19:19 +1000
+
+
+Started GET "/assets/subjects.css?body=1" for 127.0.0.1 at 2014-05-04 11:19:19 +1000
+
+
+Started GET "/sections" for 127.0.0.1 at 2014-05-04 11:19:51 +1000
+Processing by SectionsController#index as HTML
+  [1m[35mSection Load (0.3ms)[0m  SELECT `sections`.* FROM `sections` ORDER BY sections.position ASC
+  [1m[36mPage Load (0.3ms)[0m  [1mSELECT `pages`.* FROM `pages` WHERE `pages`.`id` = 2 ORDER BY `pages`.`id` ASC LIMIT 1[0m
+  Rendered sections/index.html.erb within layouts/admin (20.7ms)
+Completed 200 OK in 24ms (Views: 23.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-04 11:19:51 +1000
+
+
+Started GET "/assets/public.css?body=1" for 127.0.0.1 at 2014-05-04 11:19:51 +1000
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2014-05-04 11:19:51 +1000
+
+
+Started GET "/assets/demo.css?body=1" for 127.0.0.1 at 2014-05-04 11:19:51 +1000
+
+
+Started GET "/assets/subjects.css?body=1" for 127.0.0.1 at 2014-05-04 11:19:51 +1000
+
+
+Started GET "/assets/section.css?body=1" for 127.0.0.1 at 2014-05-04 11:19:51 +1000
+
+
+Started GET "/assets/pages.css?body=1" for 127.0.0.1 at 2014-05-04 11:19:51 +1000
+
+
+Started GET "/subjects/new" for 127.0.0.1 at 2014-05-04 11:21:19 +1000
+Processing by SubjectsController#new as HTML
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `subjects`
+  Rendered subjects/_form.html.erb (7.6ms)
+  Rendered subjects/new.html.erb within layouts/admin (10.0ms)
+Completed 200 OK in 49ms (Views: 13.6ms | ActiveRecord: 19.5ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-04 11:21:19 +1000
+
+
+Started GET "/assets/public.css?body=1" for 127.0.0.1 at 2014-05-04 11:21:19 +1000
+
+
+Started GET "/assets/section.css?body=1" for 127.0.0.1 at 2014-05-04 11:21:19 +1000
+
+
+Started GET "/assets/pages.css?body=1" for 127.0.0.1 at 2014-05-04 11:21:19 +1000
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2014-05-04 11:21:19 +1000
+
+
+Started GET "/assets/demo.css?body=1" for 127.0.0.1 at 2014-05-04 11:21:19 +1000
+
+
+Started GET "/assets/subjects.css?body=1" for 127.0.0.1 at 2014-05-04 11:21:19 +1000
+
+
+Started GET "/sections/edit/1" for 127.0.0.1 at 2014-05-04 11:21:40 +1000
+Processing by SectionsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSection Load (0.3ms)[0m  [1mSELECT `sections`.* FROM `sections` WHERE `sections`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `sections`
+  [1m[36mPage Load (0.2ms)[0m  [1mSELECT `pages`.* FROM `pages` ORDER BY position ASC[0m
+  Rendered sections/_form.html.erb (2.8ms)
+  Rendered sections/edit.html.erb within layouts/admin (4.3ms)
+Completed 200 OK in 10ms (Views: 6.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-04 11:21:40 +1000
+
+
+Started GET "/assets/public.css?body=1" for 127.0.0.1 at 2014-05-04 11:21:40 +1000
+
+
+Started GET "/assets/demo.css?body=1" for 127.0.0.1 at 2014-05-04 11:21:40 +1000
+
+
+Started GET "/assets/section.css?body=1" for 127.0.0.1 at 2014-05-04 11:21:40 +1000
+
+
+Started GET "/assets/subjects.css?body=1" for 127.0.0.1 at 2014-05-04 11:21:40 +1000
+
+
+Started GET "/assets/pages.css?body=1" for 127.0.0.1 at 2014-05-04 11:21:40 +1000
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2014-05-04 11:21:40 +1000
+
+
+Started GET "/subjects" for 127.0.0.1 at 2014-05-04 11:21:51 +1000
+Processing by SubjectsController#index as HTML
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `subjects`
+  [1m[36mSubject Load (0.3ms)[0m  [1mSELECT `subjects`.* FROM `subjects` ORDER BY subjects.position ASC[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `pages` WHERE `pages`.`subject_id` = 1
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `pages` WHERE `pages`.`subject_id` = 2[0m
+  Rendered subjects/index.html.erb within layouts/admin (15.9ms)
+Completed 200 OK in 19ms (Views: 18.0ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-04 11:21:51 +1000
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2014-05-04 11:21:51 +1000
+
+
+Started GET "/assets/public.css?body=1" for 127.0.0.1 at 2014-05-04 11:21:51 +1000
+
+
+Started GET "/assets/pages.css?body=1" for 127.0.0.1 at 2014-05-04 11:21:51 +1000
+
+
+Started GET "/assets/demo.css?body=1" for 127.0.0.1 at 2014-05-04 11:21:51 +1000
+
+
+Started GET "/assets/section.css?body=1" for 127.0.0.1 at 2014-05-04 11:21:51 +1000
+
+
+Started GET "/assets/subjects.css?body=1" for 127.0.0.1 at 2014-05-04 11:21:51 +1000
+
+
+Started GET "/assets/plus_sign.png" for 127.0.0.1 at 2014-05-04 11:21:51 +1000
+
+
+Started GET "/subjects/edit/1" for 127.0.0.1 at 2014-05-04 11:21:52 +1000
+Processing by SubjectsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mSubject Load (0.3ms)[0m  SELECT `subjects`.* FROM `subjects` WHERE `subjects`.`id` = 1 LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `subjects`[0m
+  Rendered subjects/_form.html.erb (9.5ms)
+  Rendered subjects/edit.html.erb within layouts/admin (12.8ms)
+Completed 200 OK in 26ms (Views: 23.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-04 11:21:52 +1000
+
+
+Started GET "/assets/section.css?body=1" for 127.0.0.1 at 2014-05-04 11:21:52 +1000
+
+
+Started GET "/assets/public.css?body=1" for 127.0.0.1 at 2014-05-04 11:21:52 +1000
+
+
+Started GET "/assets/pages.css?body=1" for 127.0.0.1 at 2014-05-04 11:21:52 +1000
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2014-05-04 11:21:52 +1000
+
+
+Started GET "/assets/subjects.css?body=1" for 127.0.0.1 at 2014-05-04 11:21:53 +1000
+
+
+Started GET "/assets/demo.css?body=1" for 127.0.0.1 at 2014-05-04 11:21:53 +1000
+
+
+Started GET "/subjects/edit/1" for 127.0.0.1 at 2014-05-04 11:22:24 +1000
+Processing by SubjectsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mSubject Load (0.7ms)[0m  SELECT `subjects`.* FROM `subjects` WHERE `subjects`.`id` = 1 LIMIT 1
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM `subjects`[0m
+  Rendered subjects/_form.html.erb (4.4ms)
+  Rendered subjects/edit.html.erb within layouts/admin (6.2ms)
+Completed 200 OK in 12ms (Views: 9.0ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/assets/public.css?body=1" for 127.0.0.1 at 2014-05-04 11:22:24 +1000
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-04 11:22:24 +1000
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2014-05-04 11:22:24 +1000
+
+
+Started GET "/assets/pages.css?body=1" for 127.0.0.1 at 2014-05-04 11:22:24 +1000
+
+
+Started GET "/assets/section.css?body=1" for 127.0.0.1 at 2014-05-04 11:22:24 +1000
+
+
+Started GET "/assets/subjects.css?body=1" for 127.0.0.1 at 2014-05-04 11:22:24 +1000
+
+
+Started GET "/assets/demo.css?body=1" for 127.0.0.1 at 2014-05-04 11:22:24 +1000
+
+
+Started POST "/subjects/update/1" for 127.0.0.1 at 2014-05-04 11:25:18 +1000
+Processing by SubjectsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rcw2QVJX1w7yvq5Lk/HUYrQ+3mKh0CG1DvPDvnptgo8=", "subject"=>{"name"=>"Initial Subject", "position"=>"1", "visible"=>"1", "created_at(2i)"=>"5", "created_at(3i)"=>"3", "created_at(1i)"=>"2012", "created_at(4i)"=>"01", "created_at(5i)"=>"23"}, "commit"=>"Update Subject", "id"=>"1"}
+  [1m[35mSubject Load (0.3ms)[0m  SELECT `subjects`.* FROM `subjects` WHERE `subjects`.`id` = 1 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE `subjects` SET `created_at` = '2012-05-03 01:23:00', `updated_at` = '2014-05-04 01:25:19' WHERE `subjects`.`id` = 1
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/subjects/show/1
+Completed 302 Found in 43ms (ActiveRecord: 13.9ms)
+
+
+Started GET "/subjects/show/1" for 127.0.0.1 at 2014-05-04 11:25:19 +1000
+Processing by SubjectsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mSubject Load (0.2ms)[0m  SELECT `subjects`.* FROM `subjects` WHERE `subjects`.`id` = 1 LIMIT 1
+  Rendered subjects/show.html.erb within layouts/admin (1.0ms)
+Completed 200 OK in 6ms (Views: 4.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-04 11:25:19 +1000
+
+
+Started GET "/assets/demo.css?body=1" for 127.0.0.1 at 2014-05-04 11:25:19 +1000
+
+
+Started GET "/assets/public.css?body=1" for 127.0.0.1 at 2014-05-04 11:25:19 +1000
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2014-05-04 11:25:19 +1000
+
+
+Started GET "/assets/pages.css?body=1" for 127.0.0.1 at 2014-05-04 11:25:19 +1000
+
+
+Started GET "/assets/subjects.css?body=1" for 127.0.0.1 at 2014-05-04 11:25:19 +1000
+
+
+Started GET "/assets/section.css?body=1" for 127.0.0.1 at 2014-05-04 11:25:19 +1000
+
+
+Started GET "/subjects" for 127.0.0.1 at 2014-05-04 11:25:23 +1000
+Processing by SubjectsController#index as HTML
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `subjects`[0m
+  [1m[35mSubject Load (0.2ms)[0m  SELECT `subjects`.* FROM `subjects` ORDER BY subjects.position ASC
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `pages` WHERE `pages`.`subject_id` = 1[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `pages` WHERE `pages`.`subject_id` = 2
+  Rendered subjects/index.html.erb within layouts/admin (22.0ms)
+Completed 200 OK in 27ms (Views: 15.2ms | ActiveRecord: 11.1ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2014-05-04 11:25:23 +1000
+
+
+Started GET "/assets/demo.css?body=1" for 127.0.0.1 at 2014-05-04 11:25:23 +1000
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-04 11:25:23 +1000
+
+
+Started GET "/assets/section.css?body=1" for 127.0.0.1 at 2014-05-04 11:25:23 +1000
+
+
+Started GET "/assets/pages.css?body=1" for 127.0.0.1 at 2014-05-04 11:25:23 +1000
+
+
+Started GET "/assets/public.css?body=1" for 127.0.0.1 at 2014-05-04 11:25:23 +1000
+
+
+Started GET "/assets/subjects.css?body=1" for 127.0.0.1 at 2014-05-04 11:25:23 +1000
+
+
+Started GET "/assets/plus_sign.png" for 127.0.0.1 at 2014-05-04 11:25:23 +1000
+
+
+Started GET "/subjects" for 127.0.0.1 at 2014-05-04 11:26:17 +1000
+Processing by SubjectsController#index as HTML
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `subjects`[0m
+  [1m[35mSubject Load (0.2ms)[0m  SELECT `subjects`.* FROM `subjects` ORDER BY subjects.position ASC
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `pages` WHERE `pages`.`subject_id` = 1[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `pages` WHERE `pages`.`subject_id` = 2
+  Rendered subjects/index.html.erb within layouts/admin (65.0ms)
+Completed 200 OK in 73ms (Views: 30.9ms | ActiveRecord: 38.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-04 11:26:17 +1000
+
+
+Started GET "/assets/pages.css?body=1" for 127.0.0.1 at 2014-05-04 11:26:17 +1000
+
+
+Started GET "/assets/demo.css?body=1" for 127.0.0.1 at 2014-05-04 11:26:17 +1000
+
+
+Started GET "/assets/public.css?body=1" for 127.0.0.1 at 2014-05-04 11:26:17 +1000
+
+
+Started GET "/assets/section.css?body=1" for 127.0.0.1 at 2014-05-04 11:26:17 +1000
+
+
+Started GET "/assets/subjects.css?body=1" for 127.0.0.1 at 2014-05-04 11:26:17 +1000
+
+
+Started GET "/assets/plus_sign.png" for 127.0.0.1 at 2014-05-04 11:26:17 +1000
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2014-05-04 11:26:17 +1000
+
+
+Started GET "/subjects/new" for 127.0.0.1 at 2014-05-04 11:26:20 +1000
+Processing by SubjectsController#new as HTML
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `subjects`[0m
+  Rendered subjects/_form.html.erb (5.6ms)
+  Rendered subjects/new.html.erb within layouts/admin (7.7ms)
+Completed 200 OK in 12ms (Views: 10.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-04 11:26:20 +1000
+
+
+Started GET "/assets/pages.css?body=1" for 127.0.0.1 at 2014-05-04 11:26:20 +1000
+
+
+Started GET "/assets/section.css?body=1" for 127.0.0.1 at 2014-05-04 11:26:20 +1000
+
+
+Started GET "/assets/public.css?body=1" for 127.0.0.1 at 2014-05-04 11:26:20 +1000
+
+
+Started GET "/assets/demo.css?body=1" for 127.0.0.1 at 2014-05-04 11:26:20 +1000
+
+
+Started GET "/assets/subjects.css?body=1" for 127.0.0.1 at 2014-05-04 11:26:20 +1000
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2014-05-04 11:26:20 +1000
+
+
+Started POST "/subjects/create" for 127.0.0.1 at 2014-05-04 11:26:24 +1000
+Processing by SubjectsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rcw2QVJX1w7yvq5Lk/HUYrQ+3mKh0CG1DvPDvnptgo8=", "subject"=>{"name"=>"", "position"=>"1", "visible"=>"0", "created_at(2i)"=>"5", "created_at(3i)"=>"4", "created_at(1i)"=>"2014", "created_at(4i)"=>"01", "created_at(5i)"=>"26"}, "commit"=>"Create Subject"}
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `subjects`
+  Rendered subjects/_form.html.erb (7.6ms)
+  Rendered subjects/new.html.erb within layouts/admin (9.3ms)
+Completed 200 OK in 16ms (Views: 12.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-04 11:26:24 +1000
+
+
+Started GET "/assets/pages.css?body=1" for 127.0.0.1 at 2014-05-04 11:26:24 +1000
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2014-05-04 11:26:24 +1000
+
+
+Started GET "/assets/section.css?body=1" for 127.0.0.1 at 2014-05-04 11:26:24 +1000
+
+
+Started GET "/assets/demo.css?body=1" for 127.0.0.1 at 2014-05-04 11:26:24 +1000
+
+
+Started GET "/assets/public.css?body=1" for 127.0.0.1 at 2014-05-04 11:26:24 +1000
+
+
+Started GET "/assets/subjects.css?body=1" for 127.0.0.1 at 2014-05-04 11:26:24 +1000
+
+
+Started POST "/subjects/create" for 127.0.0.1 at 2014-05-04 11:26:25 +1000
+Processing by SubjectsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rcw2QVJX1w7yvq5Lk/HUYrQ+3mKh0CG1DvPDvnptgo8=", "subject"=>{"name"=>"", "position"=>"1", "visible"=>"0", "created_at(2i)"=>"5", "created_at(3i)"=>"4", "created_at(1i)"=>"2014", "created_at(4i)"=>"01", "created_at(5i)"=>"26"}, "commit"=>"Create Subject"}
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (1.4ms)[0m  [1mSELECT COUNT(*) FROM `subjects`[0m
+  Rendered subjects/_form.html.erb (6.7ms)
+  Rendered subjects/new.html.erb within layouts/admin (9.7ms)
+Completed 200 OK in 20ms (Views: 13.2ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2014-05-04 11:26:25 +1000
+
+
+Started GET "/assets/demo.css?body=1" for 127.0.0.1 at 2014-05-04 11:26:25 +1000
+
+
+Started GET "/assets/pages.css?body=1" for 127.0.0.1 at 2014-05-04 11:26:25 +1000
+
+
+Started GET "/assets/public.css?body=1" for 127.0.0.1 at 2014-05-04 11:26:25 +1000
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-04 11:26:25 +1000
+
+
+Started GET "/assets/section.css?body=1" for 127.0.0.1 at 2014-05-04 11:26:25 +1000
+
+
+Started GET "/assets/subjects.css?body=1" for 127.0.0.1 at 2014-05-04 11:26:25 +1000
+
+
+Started POST "/subjects/create" for 127.0.0.1 at 2014-05-04 11:26:26 +1000
+Processing by SubjectsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rcw2QVJX1w7yvq5Lk/HUYrQ+3mKh0CG1DvPDvnptgo8=", "subject"=>{"name"=>"", "position"=>"1", "visible"=>"0", "created_at(2i)"=>"5", "created_at(3i)"=>"4", "created_at(1i)"=>"2014", "created_at(4i)"=>"01", "created_at(5i)"=>"26"}, "commit"=>"Create Subject"}
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `subjects`
+  Rendered subjects/_form.html.erb (5.5ms)
+  Rendered subjects/new.html.erb within layouts/admin (7.7ms)
+Completed 200 OK in 13ms (Views: 10.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/public.css?body=1" for 127.0.0.1 at 2014-05-04 11:26:26 +1000
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-04 11:26:26 +1000
+
+
+Started GET "/assets/demo.css?body=1" for 127.0.0.1 at 2014-05-04 11:26:26 +1000
+
+
+Started GET "/assets/section.css?body=1" for 127.0.0.1 at 2014-05-04 11:26:26 +1000
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2014-05-04 11:26:26 +1000
+
+
+Started GET "/assets/subjects.css?body=1" for 127.0.0.1 at 2014-05-04 11:26:26 +1000
+
+
+Started GET "/assets/pages.css?body=1" for 127.0.0.1 at 2014-05-04 11:26:26 +1000
+
+
+Started GET "/subjects" for 127.0.0.1 at 2014-05-04 11:33:05 +1000
+
+SyntaxError (/Users/shopuz/Projects/Timepass/simple_cms_rails/app/helpers/application_helper.rb:4: syntax error, unexpected '{', expecting =>
+...tion/error_messages', :locals {:object => object})
+...                               ^
+/Users/shopuz/Projects/Timepass/simple_cms_rails/app/helpers/application_helper.rb:19: syntax error, unexpected end-of-input, expecting keyword_end):
+  app/controllers/application_controller.rb:1:in `<top (required)>'
+  app/controllers/subjects_controller.rb:1:in `<top (required)>'
+
+
+  Rendered /Users/shopuz/.rvm/gems/ruby-2.1.0/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.9ms)
+  Rendered /Users/shopuz/.rvm/gems/ruby-2.1.0/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+  Rendered /Users/shopuz/.rvm/gems/ruby-2.1.0/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.2ms)
+  Rendered /Users/shopuz/.rvm/gems/ruby-2.1.0/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (14.1ms)
+
+
+Started GET "/subjects" for 127.0.0.1 at 2014-05-04 11:34:05 +1000
+Processing by SubjectsController#index as HTML
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `subjects`[0m
+  [1m[35mSubject Load (0.7ms)[0m  SELECT `subjects`.* FROM `subjects` ORDER BY subjects.position ASC
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `pages` WHERE `pages`.`subject_id` = 1[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `pages` WHERE `pages`.`subject_id` = 2
+  Rendered subjects/index.html.erb within layouts/admin (35.9ms)
+Completed 200 OK in 42ms (Views: 25.8ms | ActiveRecord: 13.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-04 11:34:05 +1000
+
+
+Started GET "/assets/public.css?body=1" for 127.0.0.1 at 2014-05-04 11:34:05 +1000
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2014-05-04 11:34:05 +1000
+
+
+Started GET "/assets/section.css?body=1" for 127.0.0.1 at 2014-05-04 11:34:05 +1000
+
+
+Started GET "/assets/pages.css?body=1" for 127.0.0.1 at 2014-05-04 11:34:05 +1000
+
+
+Started GET "/assets/demo.css?body=1" for 127.0.0.1 at 2014-05-04 11:34:05 +1000
+
+
+Started GET "/assets/subjects.css?body=1" for 127.0.0.1 at 2014-05-04 11:34:05 +1000
+
+
+Started GET "/assets/plus_sign.png" for 127.0.0.1 at 2014-05-04 11:34:05 +1000
+
+
+Started GET "/subjects/edit/2" for 127.0.0.1 at 2014-05-04 11:34:12 +1000
+Processing by SubjectsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mSubject Load (0.3ms)[0m  [1mSELECT `subjects`.* FROM `subjects` WHERE `subjects`.`id` = 2 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `subjects`
+  Rendered application/_error_messages.html.erb (0.4ms)
+  Rendered subjects/_form.html.erb (6.4ms)
+  Rendered subjects/edit.html.erb within layouts/admin (8.8ms)
+Completed 200 OK in 14ms (Views: 12.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/pages.css?body=1" for 127.0.0.1 at 2014-05-04 11:34:12 +1000
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2014-05-04 11:34:12 +1000
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-04 11:34:12 +1000
+
+
+Started GET "/assets/public.css?body=1" for 127.0.0.1 at 2014-05-04 11:34:12 +1000
+
+
+Started GET "/assets/section.css?body=1" for 127.0.0.1 at 2014-05-04 11:34:12 +1000
+
+
+Started GET "/assets/subjects.css?body=1" for 127.0.0.1 at 2014-05-04 11:34:12 +1000
+
+
+Started GET "/assets/demo.css?body=1" for 127.0.0.1 at 2014-05-04 11:34:12 +1000
+
+
+Started POST "/subjects/update/2" for 127.0.0.1 at 2014-05-04 11:34:16 +1000
+Processing by SubjectsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rcw2QVJX1w7yvq5Lk/HUYrQ+3mKh0CG1DvPDvnptgo8=", "subject"=>{"name"=>"", "position"=>"2", "visible"=>"1", "created_at(2i)"=>"5", "created_at(3i)"=>"3", "created_at(1i)"=>"2014", "created_at(4i)"=>"01", "created_at(5i)"=>"25"}, "commit"=>"Update Subject", "id"=>"2"}
+  [1m[36mSubject Load (0.2ms)[0m  [1mSELECT `subjects`.* FROM `subjects` WHERE `subjects`.`id` = 2 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `subjects`
+  Rendered application/_error_messages.html.erb (0.6ms)
+  Rendered subjects/_form.html.erb (5.7ms)
+  Rendered subjects/edit.html.erb within layouts/admin (7.3ms)
+Completed 200 OK in 18ms (Views: 12.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2014-05-04 11:34:16 +1000
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-04 11:34:16 +1000
+
+
+Started GET "/assets/public.css?body=1" for 127.0.0.1 at 2014-05-04 11:34:16 +1000
+
+
+Started GET "/assets/demo.css?body=1" for 127.0.0.1 at 2014-05-04 11:34:16 +1000
+
+
+Started GET "/assets/subjects.css?body=1" for 127.0.0.1 at 2014-05-04 11:34:16 +1000
+
+
+Started GET "/assets/pages.css?body=1" for 127.0.0.1 at 2014-05-04 11:34:16 +1000
+
+
+Started GET "/assets/section.css?body=1" for 127.0.0.1 at 2014-05-04 11:34:16 +1000
+
+
+Started POST "/subjects/update/2" for 127.0.0.1 at 2014-05-04 11:36:01 +1000
+Processing by SubjectsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rcw2QVJX1w7yvq5Lk/HUYrQ+3mKh0CG1DvPDvnptgo8=", "subject"=>{"name"=>"", "position"=>"2", "visible"=>"1", "created_at(2i)"=>"5", "created_at(3i)"=>"3", "created_at(1i)"=>"2014", "created_at(4i)"=>"01", "created_at(5i)"=>"25"}, "commit"=>"Update Subject", "id"=>"2"}
+  [1m[36mSubject Load (0.4ms)[0m  [1mSELECT `subjects`.* FROM `subjects` WHERE `subjects`.`id` = 2 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `subjects`
+  Rendered application/_error_messages.html.erb (0.3ms)
+  Rendered subjects/_form.html.erb (8.1ms)
+  Rendered subjects/edit.html.erb within layouts/admin (9.3ms)
+Completed 200 OK in 39ms (Views: 34.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2014-05-04 11:36:01 +1000
+
+
+Started GET "/assets/public.css?body=1" for 127.0.0.1 at 2014-05-04 11:36:01 +1000
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-04 11:36:01 +1000
+
+
+Started GET "/assets/section.css?body=1" for 127.0.0.1 at 2014-05-04 11:36:01 +1000
+
+
+Started GET "/assets/demo.css?body=1" for 127.0.0.1 at 2014-05-04 11:36:01 +1000
+
+
+Started GET "/assets/pages.css?body=1" for 127.0.0.1 at 2014-05-04 11:36:01 +1000
+
+
+Started GET "/assets/subjects.css?body=1" for 127.0.0.1 at 2014-05-04 11:36:01 +1000
